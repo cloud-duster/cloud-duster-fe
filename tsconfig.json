@@ -5,6 +5,10 @@
       "esModuleInterop": true,
       "skipLibCheck": true,
       "moduleResolution": "node",
-      "jsx": "react"
+      "jsx": "react",
+      "baseUrl": "",
+      "paths": {
+        "@/*" : ["src/*"]
+      }
     }
 }
