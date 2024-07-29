@@ -1,0 +1,46 @@
+.container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.main-item {
+    display: flex;
+    width: 100px;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+    background-color: aliceblue;
+}
+
+.left-btn, .right-btn {
+    display: block;
+}
+
+.carousel-track-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.memory-wrap {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .main-item {
+        flex: 0 0 auto;
+        background-color: cadetblue;
+    }
+
+    .left-btn, .right-btn {
+        display: none;
+    }
+
+    .memory-wrap {
+        display: flex;
+    }
+}

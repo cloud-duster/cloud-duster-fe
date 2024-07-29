@@ -1,8 +1,11 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import { Route, Routes } from "react-router-dom";
+import Main from "@/app/Main";
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
-	<React.StrictMode>
-		<div>hello world!</div>
-	</React.StrictMode>
-);
+const App = () => {
+	return <Routes>
+		<Route path="/" element={<Main />} />
+	</Routes>;
+};
+
+export default App;
