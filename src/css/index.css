@@ -26,7 +26,7 @@
     justify-content: space-evenly;
 }
 
-.memory-wrap {
+.main-item.hide {
     display: none;
 }
 
@@ -34,6 +34,10 @@
     .main-item {
         flex: 0 0 auto;
         background-color: cadetblue;
+    }
+
+    .main-item.hide {
+        display: flex;
     }
 
     .left-btn, .right-btn {
