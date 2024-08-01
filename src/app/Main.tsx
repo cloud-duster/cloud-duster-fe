@@ -26,20 +26,27 @@ const Main = () => {
 		setCurrentIndex(Math.min(currentIndex + 1 , pages.length));
 	};
 
+	const showLeftButton = currentIndex !== 0;
+	const showRightButton = currentIndex !== pages.length - 1;
+
 	return <div className="container">
-		<button className="left-btn" onClick={handleLeftClick}>좌</button>
+		{
+			showLeftButton && <button className="left-btn neon-text" onClick={handleLeftClick}>&lt;</button>
+		}
 		<div className="carousel-track-container">
 			{
 				pages.map(({ label, href, className}, index) => {
 					return <div key={label} className={classNames("main-item", className, {
 						"hide": index !== currentIndex
 					})}>
-						<Link to={href} className="neon_text">{label}</Link>
+						<Link to={href} className="neon-text">{label}</Link>
 					</div>;
 				})
 			}
 		</div>
-		<button className="right-btn" onClick={handleRightClick}>우</button>
+		{
+			showRightButton && <button className="right-btn neon-text" onClick={handleRightClick}>&gt;</button>
+		}
 	</div>;
 };
 
