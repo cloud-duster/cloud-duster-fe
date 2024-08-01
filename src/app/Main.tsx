@@ -34,7 +34,7 @@ const Main = () => {
 					return <div key={label} className={classNames("main-item", className, {
 						"hide": index !== currentIndex
 					})}>
-						<Link to={href}>{label}</Link>
+						<Link to={href} className="neon_text">{label}</Link>
 					</div>;
 				})
 			}
