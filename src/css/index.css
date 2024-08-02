@@ -1,3 +1,28 @@
+@font-face {
+    font-family: 'DOSSaemmul';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/DOSSaemmul.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+	font-family: 'DOSSaemmul';
+}
+
+button, input, textarea, select {
+    font-family: inherit
+}
+
+a {
+    text-decoration: none;
+    color: #0D99FF;
+}
+
+.neon-text {
+    font-size: large;
+    text-shadow: #0D99FF 0 1px 5px;
+}
+
 .container {
     display: flex;
     width: 100%;
@@ -17,7 +42,18 @@
 }
 
 .left-btn, .right-btn {
+    background: none;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    color: #B9E1FF;
+    text-decoration: none;
     display: block;
+}
+
+.left-btn.neon-text,  .right-btn.neon-text {
+    text-shadow: #B9E1FF 0 1px 5px;
+    font-size: medium;
 }
 
 .carousel-track-container {
@@ -26,7 +62,7 @@
     justify-content: space-evenly;
 }
 
-.memory-wrap {
+.main-item.hide {
     display: none;
 }
 
@@ -34,6 +70,10 @@
     .main-item {
         flex: 0 0 auto;
         background-color: cadetblue;
+    }
+
+    .main-item.hide {
+        display: flex;
     }
 
     .left-btn, .right-btn {

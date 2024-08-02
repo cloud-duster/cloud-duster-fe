@@ -12,6 +12,7 @@
   "repository": "https://github.com/cloud-duster/cloud-duster-fe.git",
   "license": "MIT",
   "dependencies": {
+    "classnames": "^2.5.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.25.1"
