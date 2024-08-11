@@ -39,7 +39,7 @@ const Main = () => {
 					return <div key={label} className={classNames("main-item", className, {
 						"hide": index !== currentIndex
 					})}>
-						<Link to={href} className="neon-text">{label}</Link>
+						<Link to={href} className="neon-text accent">{label}</Link>
 					</div>;
 				})
 			}
