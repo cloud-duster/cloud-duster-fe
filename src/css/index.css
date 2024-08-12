@@ -80,6 +80,29 @@ a {
     display: none;
 }
 
+.floating {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    border-radius: 10%;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translate(-50%, -50%) translateY(0);
+    }
+    50% {
+        transform: translate(-50%, -50%) translateY(-20px);
+    }
+    100% {
+        transform: translate(-50%, -50%) translateY(0);
+    }
+}
+
 @media (min-width: 768px) {
     .main-item {
         flex: 0 0 auto;
