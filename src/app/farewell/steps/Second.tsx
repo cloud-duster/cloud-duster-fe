@@ -20,7 +20,7 @@ const Second = () => {
 	};
 
 	return <>
-		<div className="center">
+		<div>
 			구름을 눌러 <br/>
 			보내줄 사진을 <em className="accent">선택</em> 해 주세요!
 		</div>

@@ -91,6 +91,23 @@ a {
     animation: float 3s ease-in-out infinite;
 }
 
+.goodbye {
+    width: 300px;
+    height: 200px;
+    resize: none;
+}
+
+.text-counter{
+    display: flex;
+    margin: 0;
+    align-self: end;
+}
+
+.text-counter-wrap {
+    display: flex;
+    flex-direction: column;
+}
+
 @keyframes float {
     0% {
         transform: translate(-50%, -50%) translateY(0);

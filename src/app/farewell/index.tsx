@@ -2,6 +2,7 @@ import useFarewellStore from "@/state/store";
 import React from "react";
 import First from "./steps/First";
 import Second from "./steps/Second";
+import Third from "./steps/Third";
 
 const getCurrentPageView = (currentPage: number) => {
 	switch(currentPage) {
@@ -9,6 +10,8 @@ const getCurrentPageView = (currentPage: number) => {
 		return <First />;
 	case 1:
 		return <Second />;
+	case 2:
+		return <Third />;
 	default: 
 		return <First />;
 	}
