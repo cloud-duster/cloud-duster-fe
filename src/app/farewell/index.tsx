@@ -3,6 +3,7 @@ import React from "react";
 import First from "./steps/First";
 import Second from "./steps/Second";
 import Third from "./steps/Third";
+import Fourth from "./steps/Fourth";
 
 const getCurrentPageView = (currentPage: number) => {
 	switch(currentPage) {
@@ -12,6 +13,8 @@ const getCurrentPageView = (currentPage: number) => {
 		return <Second />;
 	case 2:
 		return <Third />;
+	case 3:
+		return <Fourth />;	
 	default: 
 		return <First />;
 	}

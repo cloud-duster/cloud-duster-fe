@@ -108,6 +108,10 @@ a {
     flex-direction: column;
 }
 
+.left {
+    text-align: left;
+}
+
 @keyframes float {
     0% {
         transform: translate(-50%, -50%) translateY(0);
