@@ -35,13 +35,9 @@ const Second = () => {
 			/>
 			<label htmlFor="file">
 				<img
+					className="cloud upload"
 					src="src/assets/cloud.png"
 					alt="Upload"
-					style={{ 
-						width: 200,
-						height: 100,
-						cursor: "pointer"
-					}}
 				/>
 			</label>
 			<input 

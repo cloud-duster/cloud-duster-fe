@@ -4,6 +4,7 @@ import First from "./steps/First";
 import Second from "./steps/Second";
 import Third from "./steps/Third";
 import Fourth from "./steps/Fourth";
+import Fifth from "./steps/Fifth";
 
 const getCurrentPageView = (currentPage: number) => {
 	switch(currentPage) {
@@ -15,6 +16,8 @@ const getCurrentPageView = (currentPage: number) => {
 		return <Third />;
 	case 3:
 		return <Fourth />;	
+	case 4:
+		return <Fifth />;	
 	default: 
 		return <First />;
 	}

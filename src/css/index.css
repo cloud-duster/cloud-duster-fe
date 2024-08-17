@@ -97,6 +97,15 @@ a {
     resize: none;
 }
 
+.cloud {
+    width: 200px;
+    height: 100px;
+}
+
+.cloud.upload {
+    cursor: pointer;
+}
+
 .text-counter{
     display: flex;
     margin: 0;
@@ -110,6 +119,29 @@ a {
 
 .left {
     text-align: left;
+}
+
+.deleted-quota-info {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.deleted-quota-info.fade-out {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.deleted-quota-text {
+    font-size: 25px;
+}
+
+.deleted-quota-info.fade-in {
+    opacity: 1;
+}
+
+.shade {
+    color: #898989;
+    font-size: 15px;
 }
 
 @keyframes float {

@@ -1,6 +1,7 @@
 import { create } from "zustand";
 
 interface FarewellState {
+  deletedFileCount: number;
   currentPage: number;
   file: null | File;
   nextPage: () => void;
@@ -9,6 +10,7 @@ interface FarewellState {
 }
 
 const useFarewellStore = create<FarewellState>()((set) => ({
+	deletedFileCount: 0,
 	currentPage: 0,
 	file: null,
 	nextPage: () => set((state) => ({ currentPage: state.currentPage + 1 })),
