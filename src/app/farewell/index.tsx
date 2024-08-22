@@ -5,6 +5,7 @@ import Second from "./steps/Second";
 import Third from "./steps/Third";
 import Fourth from "./steps/Fourth";
 import Fifth from "./steps/Fifth";
+import Button from "@/components/Button";
 
 const getCurrentPageView = (currentPage: number) => {
 	switch(currentPage) {
@@ -32,12 +33,13 @@ const Farewell = () => {
 		previousPage();
 	};
 
-	return <div className="container column">
-		{getCurrentPageView(currentPage)}
-
-		<div className="row">
-			<button onClick={handleClickPrevious}>prev</button>
-			<button onClick={handleClickNext}>next</button>
+	return <div className="wrapper column">
+		<div className="container column">
+			{getCurrentPageView(currentPage)}
+		</div>
+		<div className="row button-area">
+			<Button onClick={handleClickPrevious}>이전</Button>
+			<Button onClick={handleClickNext}>다음</Button>
 		</div>
 	</div>;
 };
