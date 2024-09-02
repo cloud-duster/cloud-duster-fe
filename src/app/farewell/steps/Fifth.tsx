@@ -1,9 +1,12 @@
+import Button from "@/components/Button";
 import useFarewellStore from "@/state/store";
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Fifth = () => {
-	const { deletedFileCount } = useFarewellStore();
+	const { deletedFileCount, resetStore } = useFarewellStore();
 	const [isLoading, setLoading] = useState(true);
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		// TODO: API 연동
@@ -11,6 +14,11 @@ const Fifth = () => {
 			setLoading(false);
 		}, 2000);
 	}, []);
+
+	const handleClickMain = () => {
+		navigate("/");
+		resetStore();
+	};
 
 	return (
 		<>
@@ -29,6 +37,7 @@ const Fifth = () => {
 				<p className="shade">
                     1kb의 전력으로는 물 4방울,<br/> 열 10도의 에너지를 아낄 수 있어요.
 				</p>
+				<Button className="to-main" onClick={handleClickMain}>메인으로</Button>
 			</div>
 		</>
 	);

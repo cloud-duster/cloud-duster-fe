@@ -1,8 +1,14 @@
+import useFarewellStore from "@/state/store";
 import React from "react";
+import FarewellLocation from "../types/FarewellLocation";
 
 const Fourth = () => {
-	const handleClick = () => {
-		// TODO: 누른 장소 저장
+	const { setSelectedLocation, nextPage } = useFarewellStore();
+	const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
+		const value = event.currentTarget.dataset.value as FarewellLocation;
+		
+		setSelectedLocation(value);
+		nextPage();
 	};
 
 	return <>
@@ -11,18 +17,23 @@ const Fourth = () => {
 			className="goodbye"
 			style={{backgroundColor: "aliceblue"}}
 			onClick={handleClick}
+			data-value={FarewellLocation.SKY}
 		>
             하늘
 		</div>
 		<div
 			className="goodbye"
 			style={{backgroundColor: "gray"}}
+			onClick={handleClick}
+			data-value={FarewellLocation.OCEAN}
 		>
             바다
 		</div>
 		<div
 			className="goodbye"
 			style={{backgroundColor: "blueviolet"}}
+			onClick={handleClick}
+			data-value={FarewellLocation.MOUNTAIN}
 		>
             산
 		</div>

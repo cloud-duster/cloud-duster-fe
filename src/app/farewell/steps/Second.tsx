@@ -1,6 +1,7 @@
 import useFarewellStore from "@/state/store";
-import React, { ChangeEvent, useRef } from "react";
+import React, { ChangeEvent, useEffect, useRef } from "react";
 import classNames from "classnames";
+import useValidateNextButton from "../hooks/useValidateNextButton";
 
 
 const Second = () => {
@@ -18,6 +19,14 @@ const Second = () => {
 			}
 		}
 	};
+
+	useValidateNextButton({ disableCondition: !file });
+
+	useEffect(() => {
+		if (file && floatingImageRef.current) {
+			floatingImageRef.current.src = URL.createObjectURL(file);
+		}
+	}, [file, floatingImageRef]);
 
 	return <>
 		<div>
