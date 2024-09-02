@@ -1,23 +1,24 @@
 import useFarewellStore from "@/state/store";
-import React from "react";
+import React, { useEffect } from "react";
 import First from "./steps/First";
 import Second from "./steps/Second";
 import Third from "./steps/Third";
 import Fourth from "./steps/Fourth";
 import Fifth from "./steps/Fifth";
-import Button from "@/components/Button";
+import Buttons from "./Buttons";
+import Page from "./types/Page";
 
 const getCurrentPageView = (currentPage: number) => {
 	switch(currentPage) {
-	case 0:
+	case Page.First:
 		return <First />;
-	case 1:
+	case Page.Second:
 		return <Second />;
-	case 2:
+	case Page.Third:
 		return <Third />;
-	case 3:
+	case Page.Fourth:
 		return <Fourth />;	
-	case 4:
+	case Page.Fifth:
 		return <Fifth />;	
 	default: 
 		return <First />;
@@ -25,22 +26,24 @@ const getCurrentPageView = (currentPage: number) => {
 };
 
 const Farewell = () => {
-	const { currentPage, nextPage, previousPage } = useFarewellStore();
-	const handleClickNext = () => {
-		nextPage();
+	const { currentPage, resetStore} = useFarewellStore();
+
+	const handlePopState = () => {
+		resetStore();
 	};
-	const handleClickPrevious = () => {
-		previousPage();
-	};
+	
+	useEffect(() => {
+		window.addEventListener("popstate", handlePopState);
+		return () => {
+			window.removeEventListener("popstate", handlePopState);
+		};	  
+	}, []);
 
 	return <div className="wrapper column">
 		<div className="container column">
 			{getCurrentPageView(currentPage)}
 		</div>
-		<div className="row button-area">
-			<Button onClick={handleClickPrevious}>이전</Button>
-			<Button onClick={handleClickNext}>다음</Button>
-		</div>
+		<Buttons />
 	</div>;
 };
 

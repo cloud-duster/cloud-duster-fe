@@ -16,9 +16,9 @@ const Button: FC<PropsWithChildren<Props>> = ({ children, onClick, className, di
 
 	return <button 
 		onClick={handleClickButton} 
-		className={classNames(className, "pixel-button", {
+		className={classNames("pixel-button", {
 			disabled
-		})}
+		}, className)}
 		disabled={disabled}
 	>
 		{children}
