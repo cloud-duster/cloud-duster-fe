@@ -24,6 +24,10 @@ a {
     text-decoration: none;
 }
 
+.pointer:hover {
+    cursor: pointer;
+}
+
 .accent {
     color: #0D99FF;
     font-style: normal;
