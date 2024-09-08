@@ -65,7 +65,7 @@ a {
     height: 100px;
     align-items: center;
     justify-content: center;
-    background-color: aliceblue;
+    gap: 40px;
 }
 
 .left-btn, .right-btn {
@@ -249,6 +249,101 @@ button {
     margin-top: 50px;
 }
 
+.logo-wrapper {
+    position: relative;
+    display: flex;
+}
+
+.logo-big {
+    width: 100px;
+    z-index: 10;
+}
+
+.logo-star {
+    width: 20px;
+    top: 100%;
+    left: 20%;
+    position: absolute;
+}
+
+@keyframes bounce-star {
+    0% {
+        top: 100%;
+        left: 20%;
+    }
+    100% {
+        rotate: -20deg;
+    }
+}
+
+.logo-wrapper:hover .logo-star {
+    animation: bounce-star 1s steps(2) infinite;
+}
+
+.logo-button {
+    width: 20px;
+    top: 130%;
+    left: 40%;
+    position: absolute;
+}
+
+@keyframes bounce-button {
+    0% {
+        top: 130%;
+        left: 40%;
+    }
+    100% {
+        rotate: -50deg;
+    }
+}
+
+.logo-wrapper:hover .logo-button {
+    animation: bounce-button 1s steps(2) infinite;
+}
+
+.logo-narutomaki {
+    width: 20px;
+    top: 80%;
+    left: 50%;
+    position: absolute;
+}
+
+@keyframes bounce-narutomaki {
+    0% {
+        top: 80%;
+        left: 50%;
+    }
+    100% {
+        rotate: 40deg;
+    }
+}
+
+.logo-wrapper:hover .logo-narutomaki {
+    animation: bounce-narutomaki 1s steps(2) infinite;
+}
+
+.logo-tamagotchi {
+    width: 20px;
+    top: 100%;
+    left: 70%;
+    position: absolute;
+    rotate: 20deg;
+}
+
+@keyframes bounce-tamagotchi {
+    0% {
+        top: 100%;
+        left: 70%;
+    }
+    100% {
+        rotate: 40deg;
+    }
+}
+
+.logo-wrapper:hover .logo-tamagotchi {
+    animation: bounce-tamagotchi 1s steps(2) infinite;
+}
+
 @keyframes float {
     0% {
         transform: translate(-50%, -50%) translateY(0);
@@ -264,7 +359,6 @@ button {
 @media (min-width: 768px) {
     .main-item {
         flex: 0 0 auto;
-        background-color: cadetblue;
     }
 
     .main-item.hide {
@@ -278,4 +372,22 @@ button {
     .memory-wrap {
         display: flex;
     }
+}
+
+@media (max-width: 768px) {
+    .logo-button {
+        animation: bounce-button 1s steps(2) infinite;
+    }
+
+    .logo-narutomaki {
+        animation: bounce-narutomaki 1s steps(2) infinite;
+    }
+    
+    .logo-tamagotchi {
+        animation: bounce-tamagotchi 1s steps(2) infinite;
+    }
+
+    .logo-star {
+        animation: bounce-star 1s steps(2) infinite;
+    }    
 }

@@ -3,6 +3,7 @@ import "@/css/index.css";
 import { Link } from "react-router-dom";
 import Pages from "@/routes";
 import classNames from "classnames";
+import Logo from "./components/logo/Logo";
 
 const pages = [{
 	className: "farewell-wrap",
@@ -36,9 +37,10 @@ const Main = () => {
 		<div className="carousel-track-container">
 			{
 				pages.map(({ label, href, className}, index) => {
-					return <div key={label} className={classNames("main-item", className, {
+					return <div key={label} className={classNames("main-item column", className, {
 						"hide": index !== currentIndex
 					})}>
+						<Logo index={index}/>
 						<Link to={href} className="neon-text accent">{label}</Link>
 					</div>;
 				})
