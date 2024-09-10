@@ -263,6 +263,67 @@ button {
     z-index: 10;
 }
 
+.logo-small {
+    height: 10px;
+    width: 15px;
+    position: absolute;
+}
+
+.logo-first {
+    top: 60px;
+    left: 80px;
+}
+
+.logo-second {
+    top: 50px;
+    left: 60px;
+}
+
+.black-dot-wrapper {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 50%;
+    gap: 15px;
+}
+
+.black-dot {
+    z-index: 10;
+    width: 3px;
+    height: 3px;
+    background-color: rgb(99, 99, 99);
+    border-radius: 50%;
+}
+
+.logo-wrapper-memory:hover .black-dot {
+    animation: blink 3s steps(1) infinite;
+    animation-delay: calc(var(--index) * 0.5s);
+    animation-fill-mode: forwards;
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+.black-dot:nth-child(1) {
+    --index: 1;
+}
+
+.black-dot:nth-child(2) {
+    --index: 2;
+}
+
+.black-dot:nth-child(3) {
+    --index: 3;
+}
+
 .logo-star {
     width: 20px;
     top: 100%;
@@ -394,4 +455,9 @@ button {
     .logo-star {
         animation: bounce-star 1s steps(2) infinite;
     }    
+
+    .black-dot {
+        animation: blink 3s steps(1) infinite;
+        animation-delay: calc(var(--index) * 0.5s);
+    }
 }
