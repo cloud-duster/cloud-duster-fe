@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import "@/css/index.css";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Pages from "@/routes";
 import classNames from "classnames";
+import Logo from "./components/logo/Logo";
 
 const pages = [{
 	className: "farewell-wrap",
@@ -16,6 +17,7 @@ const pages = [{
 }];
 
 const Main = () => {
+	const navigate = useNavigate();
 	const [currentIndex, setCurrentIndex] = useState<number>(0);
 
 	const handleLeftClick = () => {
@@ -24,6 +26,10 @@ const Main = () => {
 
 	const handleRightClick = () => {
 		setCurrentIndex(Math.min(currentIndex + 1 , pages.length));
+	};
+
+	const handleClickPage = (href: string) => () => {
+		navigate(href);
 	};
 
 	const showLeftButton = currentIndex !== 0;
@@ -36,10 +42,14 @@ const Main = () => {
 		<div className="carousel-track-container">
 			{
 				pages.map(({ label, href, className}, index) => {
-					return <div key={label} className={classNames("main-item", className, {
+					return <div key={label} className={classNames("main-item column", className, {
 						"hide": index !== currentIndex
-					})}>
-						<Link to={href} className="neon-text accent">{label}</Link>
+					})}
+					onClick={handleClickPage(href)}>
+						<Logo index={index}/>
+						<div className="neon-text accent pointer">
+							{label}
+						</div>
 					</div>;
 				})
 			}
