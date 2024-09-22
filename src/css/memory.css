@@ -108,6 +108,15 @@
     transform: translate(-50%);
 }
 
+.back-button {
+    top: 10px;
+    left: 10px;
+    width: 20px;
+    height: 13px;
+    position: fixed;
+    z-index: 10;
+}
+
 @media (max-width: 768px) {
     .gallery {
         justify-content: space-evenly;

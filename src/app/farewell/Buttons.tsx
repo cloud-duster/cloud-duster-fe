@@ -1,11 +1,11 @@
-import React from "react";
 import Button from "@/components/Button";
 import useFarewellStore from "@/state/FarewellStore";
+import React from "react";
 import Page from "./types/Page";
 
 const Buttons = () => {
 	const { currentPage, nextPage, previousPage, isNextButtonDisabled, setFarewell } = useFarewellStore();
-	const showPreviousButton = currentPage <= Page.Fourth;
+	const showPreviousButton = currentPage <= Page.Fourth && currentPage !== Page.First;
 	const showNextButton = currentPage <= Page.Third;
 
 	const saveFarewell = () => {
