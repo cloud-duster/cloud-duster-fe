@@ -1,4 +1,4 @@
-import useFarewellStore from "@/state/store";
+import useFarewellStore from "@/state/FarewellStore";
 import React from "react";
 import FarewellLocation from "../types/FarewellLocation";
 

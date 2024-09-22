@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "@/components/Button";
-import useFarewellStore from "@/state/store";
+import useFarewellStore from "@/state/FarewellStore";
 import Page from "./types/Page";
 
 const Buttons = () => {

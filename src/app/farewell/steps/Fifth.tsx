@@ -1,5 +1,5 @@
 import Button from "@/components/Button";
-import useFarewellStore from "@/state/store";
+import useFarewellStore from "@/state/FarewellStore";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 

@@ -1,4 +1,4 @@
-import useFarewellStore from "@/state/store";
+import useFarewellStore from "@/state/FarewellStore";
 import { useEffect } from "react";
 
 interface Props {

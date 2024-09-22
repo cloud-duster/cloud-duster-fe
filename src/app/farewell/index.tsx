@@ -1,4 +1,4 @@
-import useFarewellStore from "@/state/store";
+import useFarewellStore from "@/state/FarewellStore";
 import React, { useEffect } from "react";
 import First from "./steps/First";
 import Second from "./steps/Second";
@@ -26,7 +26,7 @@ const getCurrentPageView = (currentPage: number) => {
 };
 
 const Farewell = () => {
-	const { currentPage, resetStore} = useFarewellStore();
+	const { currentPage, resetStore } = useFarewellStore();
 
 	const handlePopState = () => {
 		resetStore();

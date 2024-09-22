@@ -1,4 +1,4 @@
-import useFarewellStore from "@/state/store";
+import useFarewellStore from "@/state/FarewellStore";
 import React, { ChangeEvent, useEffect, useMemo, useRef, useState } from "react";
 import useValidateNextButton from "../hooks/useValidateNextButton";
 
