@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import React, { useEffect, useState } from "react";
 import useValidateNextButton from "../hooks/useValidateNextButton";
-import useFarewellStore from "@/state/store";
+import useFarewellStore from "@/state/FarewellStore";
 
 const First = () => {
 	const [value, setValue] = useState("");

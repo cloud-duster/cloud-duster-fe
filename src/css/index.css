@@ -12,11 +12,14 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 body {
-	font-family: 'DOSSaemmul';
+    font-family: 'DOSSaemmul';
     font-size: 25px;
 }
 
-button, input, textarea, select {
+button,
+input,
+textarea,
+select {
     font-family: inherit
 }
 
@@ -72,7 +75,8 @@ a {
     gap: 40px;
 }
 
-.left-btn, .right-btn {
+.left-btn,
+.right-btn {
     background: none;
     border: none;
     outline: none;
@@ -82,7 +86,8 @@ a {
     display: block;
 }
 
-.left-btn.neon-text,  .right-btn.neon-text {
+.left-btn.neon-text,
+.right-btn.neon-text {
     text-shadow: #B9E1FF 0 1px 5px;
     font-size: medium;
 }
@@ -123,7 +128,7 @@ a {
     cursor: pointer;
 }
 
-.text-counter{
+.text-counter {
     display: flex;
     margin: 0;
     align-self: end;
@@ -187,7 +192,7 @@ button {
     --width: 2px;
     --color: black;
     --bgcolor: #b9e1ff00;
-    
+
     background-color: var(--bgcolor);
     box-sizing: border-box;
     font-size: 20px;
@@ -200,7 +205,7 @@ button {
         calc(2 * var(--width)) 0 var(--color),
         calc(-2 * var(--width)) 0 var(--color),
         0 calc(-2 * var(--width)) var(--color),
-        0 calc(2 * var(--width)) var(--color), 
+        0 calc(2 * var(--width)) var(--color),
         0 0 0 var(--width) var(--color);
 }
 
@@ -221,7 +226,7 @@ button {
     --width: 4px;
     --color: black;
     --bgcolor: #B9E1FF;
-    
+
     background-color: var(--bgcolor);
     box-sizing: border-box;
     font-size: 20px;
@@ -237,14 +242,14 @@ button {
         calc(2 * var(--width)) 0 var(--color),
         calc(-2 * var(--width)) 0 var(--color),
         0 calc(-2 * var(--width)) var(--color),
-        0 calc(2 * var(--width)) var(--color), 
+        0 calc(2 * var(--width)) var(--color),
         0 0 0 var(--width) var(--color);
 }
 
 .pixel-button.disabled {
     --width: 3px;
     --color: rgba(118, 118, 118, 0.1);
-    color: gray; 
+    color: gray;
     --bgcolor: rgb(237, 237, 237);
 }
 
@@ -304,9 +309,12 @@ button {
 }
 
 @keyframes blink {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: 0;
     }
+
     50% {
         opacity: 1;
     }
@@ -336,6 +344,7 @@ button {
         top: 100%;
         left: 20%;
     }
+
     100% {
         rotate: -20deg;
     }
@@ -357,6 +366,7 @@ button {
         top: 130%;
         left: 40%;
     }
+
     100% {
         rotate: -50deg;
     }
@@ -378,6 +388,7 @@ button {
         top: 80%;
         left: 50%;
     }
+
     100% {
         rotate: 40deg;
     }
@@ -400,6 +411,7 @@ button {
         top: 100%;
         left: 70%;
     }
+
     100% {
         rotate: 40deg;
     }
@@ -413,9 +425,11 @@ button {
     0% {
         transform: translate(-50%, -50%) translateY(0);
     }
+
     50% {
         transform: translate(-50%, -50%) translateY(-20px);
     }
+
     100% {
         transform: translate(-50%, -50%) translateY(0);
     }
@@ -430,7 +444,8 @@ button {
         display: flex;
     }
 
-    .left-btn, .right-btn {
+    .left-btn,
+    .right-btn {
         display: none;
     }
 
@@ -447,14 +462,14 @@ button {
     .logo-narutomaki {
         animation: bounce-narutomaki 1s steps(2) infinite;
     }
-    
+
     .logo-tamagotchi {
         animation: bounce-tamagotchi 1s steps(2) infinite;
     }
 
     .logo-star {
         animation: bounce-star 1s steps(2) infinite;
-    }    
+    }
 
     .black-dot {
         animation: blink 3s steps(1) infinite;

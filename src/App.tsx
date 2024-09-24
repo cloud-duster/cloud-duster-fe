@@ -4,12 +4,14 @@ import Main from "@/app/Main";
 import Memory from "./app/memory";
 import Farewell from "./app/farewell";
 import Pages from "./routes";
+import MemoryDetail from "./app/memory/MemoryDetail";
 
 const App = () => {
 	return <Routes>
 		<Route path={Pages.Main} element={<Main />} />
 		<Route path={Pages.Memory} element={<Memory />} />
 		<Route path={Pages.Farewell} element={<Farewell />} />
+		<Route path={Pages.MemoryDetail} element={<MemoryDetail />} />
 	</Routes>;
 };
 

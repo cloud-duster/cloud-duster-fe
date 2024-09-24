@@ -1,7 +1,8 @@
 enum Pages { 
     Main = "/",
     Farewell = "/farewell",
-    Memory = "/memory"
+    Memory = "/memory",
+    MemoryDetail = "/detail"
 }
 
 
