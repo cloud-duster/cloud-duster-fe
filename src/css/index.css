@@ -125,6 +125,7 @@ a {
     color: #B9E1FF;
     text-decoration: none;
     display: block;
+    margin: 10px;
 }
 
 .left-btn.neon-text,
