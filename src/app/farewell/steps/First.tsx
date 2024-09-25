@@ -1,10 +1,12 @@
+import useFarewellStore from "@/state/FarewellStore";
 import classNames from "classnames";
 import React, { useEffect, useState } from "react";
 import useValidateNextButton from "../hooks/useValidateNextButton";
-import useFarewellStore from "@/state/FarewellStore";
+import Alert from "./components/Alert";
 
 const First = () => {
 	const [value, setValue] = useState("");
+	const [showLayer, setShowLayer] = useState(true);
 	const [error, setError] = useState("");
 	const { deletedFileCount, setDeletedCount } = useFarewellStore();
 
@@ -36,8 +38,9 @@ const First = () => {
 
 	return (
 		<>
+			{showLayer && <Alert onClickClose={() => { setShowLayer(false); }} />}
 			<div>
-        사진/동영상을 <em className="accent">몇 장</em>
+				사진/동영상을 <em className="accent">몇 장</em>
 				<br /> 보내주셨나요?
 			</div>
 
@@ -47,8 +50,7 @@ const First = () => {
 					className={classNames("deleted-photo-input", { "with-error": error })}
 					onChange={handleChange}
 					value={value}
-				/>{" "}
-        장
+				/>{" "}장
 				<p
 					className="error"
 					style={error ? undefined : { visibility: "hidden" }}
