@@ -22,8 +22,6 @@ const First = () => {
 			setError("숫자만 입력 해 주세요.");
 		} else if (valueAsNumber <= 0) {
 			setError("0보다 큰 수를 입력 해 주세요.");
-		} else if (valueAsNumber < 10) {
-			setError("10장 이상의 사진을 지워주세요.");
 		} else {
 			setError("");
 			setValue(value);
