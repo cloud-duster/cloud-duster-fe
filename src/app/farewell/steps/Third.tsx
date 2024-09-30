@@ -5,11 +5,12 @@ import useValidateNextButton from "../hooks/useValidateNextButton";
 const MAX_LENGTH = 300;
 
 const Third = () => {
-	const { file, farewell } = useFarewellStore();
+	const { file, farewell, nickName } = useFarewellStore();
 	const [textCount, setTextCount] = useState(0);
 	const imageSrc = useMemo(() => (file && URL.createObjectURL(file)) || "", [file]);
 
 	const textAreaRef = useRef<HTMLTextAreaElement>(null);
+	const nickNameRef = useRef<HTMLTextAreaElement>(null);
 
 	const handleOnChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
 		setTextCount(e.target.value.length);
@@ -20,13 +21,17 @@ const Third = () => {
 			textAreaRef.current.value = farewell;
 			setTextCount(farewell.length);
 		}
+
+		if (nickNameRef.current) {
+			nickNameRef.current.value = nickName || "";
+		}
 	}, []);
 
 	useValidateNextButton({ disableCondition: !textCount });
 
 	return (
 		<>
-			<div>
+			<div className="upper-margin">
 				<em className="accent">★˚⋱</em> 작별인사 쓰기 <em className="accent">⋰˚★</em>
 			</div>
 
@@ -35,6 +40,12 @@ const Third = () => {
 				src={imageSrc}
 			/>
 			<div className="text-counter-wrap">
+				<textarea
+					ref={nickNameRef}
+					className="goodbye nickname"
+					id="nickname"
+					placeholder="익명의 먼지털이"
+				/>
 				<textarea
 					id="farewell"
 					maxLength={MAX_LENGTH}

@@ -1,6 +1,6 @@
 import useFarewellStore from "@/state/FarewellStore";
-import React, { ChangeEvent, useEffect, useRef } from "react";
 import classNames from "classnames";
+import React, { ChangeEvent, useEffect, useRef } from "react";
 import useValidateNextButton from "../hooks/useValidateNextButton";
 
 
@@ -10,11 +10,11 @@ const Second = () => {
 
 	const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
 		const selectedFile = e.target.files?.[0] || null;
-		
+
 		if (selectedFile) {
 			saveFile(selectedFile);
 
-			if (floatingImageRef.current){
+			if (floatingImageRef.current) {
 				floatingImageRef.current.src = URL.createObjectURL(selectedFile);
 			}
 		}
@@ -29,13 +29,13 @@ const Second = () => {
 	}, [file, floatingImageRef]);
 
 	return <>
-		<div>
-			구름을 눌러 <br/>
-			보내줄 사진을 <em className="accent">선택</em> 해 주세요!
+		<div style={{ lineHeight: "30px" }}>
+			구름을 눌러 <br />
+			보내줄 사진을 <br /><em className="accent">선택</em> 해 주세요!
 		</div>
 
 		<div>
-			<img 
+			<img
 				ref={floatingImageRef}
 				className={classNames({
 					floating: file
@@ -49,14 +49,14 @@ const Second = () => {
 					alt="Upload"
 				/>
 			</label>
-			<input 
+			<input
 				accept="image/*"
 				style={{
 					display: "none"
 				}}
-				type="file" 
+				type="file"
 				id="file"
-				name="file" 
+				name="file"
 				onChange={handleChange} />
 		</div>
 	</>;

@@ -161,6 +161,23 @@ a {
     resize: none;
 }
 
+.upper-margin {
+    margin-top: 35px;
+}
+
+textarea.goodbye {
+    box-sizing: border-box;
+    padding-left: 10px;
+    padding-top: 5px;
+}
+
+.goodbye.nickname {
+    height: 40px;
+    margin: 1% auto;
+    line-height: 34px;
+    padding-top: 0;
+}
+
 .cloud {
     width: 200px;
     height: 100px;

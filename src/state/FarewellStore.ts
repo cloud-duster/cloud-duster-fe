@@ -3,21 +3,23 @@ import { create } from "zustand";
 const MAX_PAGE = 4;
 
 interface FarewellState {
-  deletedFileCount: number;
-  currentPage: number;
-  file: null | File;
-  isNextButtonDisabled: boolean;
-  selectedLocation: FarewellLocation;
-  farewell: string;
-  nextPage: () => void;
-  previousPage: () => void;
-  saveFile: (file: File) => void;
-  disableNextButton: () => void;
-  enableNextButton: () => void;
-  setSelectedLocation: (location: FarewellLocation) => void;
-  setDeletedCount: (value: number) => void;
-  setFarewell: (value: string) => void;
-  resetStore: () => void;
+	deletedFileCount: number;
+	currentPage: number;
+	file: null | File;
+	isNextButtonDisabled: boolean;
+	selectedLocation: FarewellLocation;
+	nickName: string;
+	farewell: string;
+	nextPage: () => void;
+	previousPage: () => void;
+	saveFile: (file: File) => void;
+	disableNextButton: () => void;
+	enableNextButton: () => void;
+	setSelectedLocation: (location: FarewellLocation) => void;
+	setDeletedCount: (value: number) => void;
+	setFarewell: (value: string) => void;
+	resetStore: () => void;
+	setNickName: (value: string) => void;
 }
 
 const initialState = {
@@ -25,6 +27,7 @@ const initialState = {
 	currentPage: 0,
 	file: null,
 	farewell: "",
+	nickName: "",
 	selectedLocation: FarewellLocation.NONE,
 	isNextButtonDisabled: false,
 };
@@ -40,6 +43,7 @@ const useFarewellStore = create<FarewellState>()((set) => ({
 	saveFile: (file) => set(() => ({ file })),
 	setFarewell: (farewell) => set(() => ({ farewell })),
 	resetStore: () => set(initialState),
+	setNickName: (nickName) => set(() => ({ nickName })),
 }));
 
 export default useFarewellStore;
