@@ -1,28 +1,24 @@
-import Pages from "@/routes";
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { getMemoryList } from "../api/MemoryAPI";
+import { Memory } from "../api/types/MemoryType";
+import GalleryItem from "./GalleryItem";
 
 const Gallery = () => {
-	const navigate = useNavigate();
+	const [list, setList] = useState<Array<Memory>>([]);
+	useEffect(() => {
+		const fetchList = async () => {
+			const response = await getMemoryList();
 
-	const handleClickItem = () => {
-		// TODO: 왜 2depth면 안되지??
-		navigate(Pages.MemoryDetail);
-	};
+			setList(response.data.items);
+		}
+
+		fetchList();
+	}, []);
 
 	return <div className="gallery">
-		<div className="gallery-item" onClick={handleClickItem}>
-			<img src="image1.jpg" alt="Image 1"/>
-		</div>
-		<div className="gallery-item">
-			<img src="image2.jpg" alt="Image 2"/>
-		</div>
-		<div className="gallery-item">
-			<img src="image3.jpg" alt="Image 3"/>
-		</div>
-		<div className="gallery-item">
-			<img src="image4.jpg" alt="Image 4"/>
-		</div>
+		{list.map((item: any) => {
+			return <GalleryItem item={item} key={item.id} />
+		})}
 	</div>;
 };
 
