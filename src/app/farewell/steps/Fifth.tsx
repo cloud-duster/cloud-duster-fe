@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Fifth = () => {
-	const { deletedFileCount, resetStore, file, nickName, selectedLocation } = useFarewellStore();
+	const { deletedFileCount, resetStore, file, nickName, selectedLocation, farewell } = useFarewellStore();
 	const [isLoading, setLoading] = useState(true);
 	const navigate = useNavigate();
 
@@ -19,7 +19,8 @@ const Fifth = () => {
 				const response = await createMemory({
 					image: file,
 					nickname: nickName,
-					location: selectedLocation
+					location: selectedLocation,
+					message: farewell
 				});
 
 				if (response) {
@@ -33,7 +34,7 @@ const Fifth = () => {
 		saveMemory();
 
 		return () => setLoading(true);
-	}, []);
+	}, [file]);
 
 	const handleClickMain = () => {
 		navigate("/");
