@@ -1,8 +1,8 @@
 const enum FarewellLocation {
-    OCEAN = "Ocean",
-    MOUNTAIN = "Mountain",
-    SKY = "Sky",
-    NONE = "None"
+    OCEAN = "OCEAN",
+    MOUNTAIN = "MOUNTAIN",
+    SKY = "SKY",
+    NONE = "NONE"
 }
 
 export default FarewellLocation;

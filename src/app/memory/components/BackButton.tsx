@@ -3,12 +3,17 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 interface Props {
-    to: Pages;
+	to: Pages;
+	onClickBackButton?: () => void;
 }
 
-const BackButton = ({ to }: Props) => {
+const BackButton = ({ to, onClickBackButton }: Props) => {
 	const navigate = useNavigate();
 	const handleClickBack = () => {
+		if (onClickBackButton) {
+			onClickBackButton();
+		}
+
 		navigate(to);
 	};
 

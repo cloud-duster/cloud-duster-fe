@@ -1,0 +1,5 @@
+const getMemoryList = () => {
+
+}
+
+export { getMemoryList };
