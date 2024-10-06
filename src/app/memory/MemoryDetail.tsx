@@ -20,13 +20,13 @@ const MemoryDetail: FC = () => {
 			const response = await getMemory(id);
 
 			setDetail(response.data.result[0]);
-		}
+		};
 
 		fetchMemory();
-	}, [id])
+	}, [id]);
 
 	if (!itemDetail) {
-		return <div>error!</div>
+		return <div>error!</div>;
 	}
 
 	return <>

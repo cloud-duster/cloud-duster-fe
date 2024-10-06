@@ -1,15 +1,19 @@
 import { createMemory } from "@/app/api/FarewellAPI";
 import Button from "@/components/Button";
 import useFarewellStore from "@/state/FarewellStore";
+import useLoadingStore from "@/state/LoadingStore";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Fifth = () => {
 	const { deletedFileCount, resetStore, file, nickName, selectedLocation, farewell } = useFarewellStore();
 	const [isLoading, setLoading] = useState(true);
+	const { showLoading, hideLoading } = useLoadingStore();
 	const navigate = useNavigate();
 
 	useEffect(() => {
+		showLoading();
+
 		const saveMemory = async () => {
 			if (!file) {
 				return;
@@ -24,12 +28,14 @@ const Fifth = () => {
 				});
 
 				if (response) {
+					hideLoading();
 					setLoading(false);
 				}
 			} catch (error) {
+				hideLoading();
 				handleClickMain();
 			}
-		}
+		};
 
 		saveMemory();
 
