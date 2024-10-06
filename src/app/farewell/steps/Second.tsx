@@ -45,7 +45,7 @@ const Second = () => {
 			<label htmlFor="file">
 				<img
 					className="cloud upload"
-					src="src/assets/cloud.png"
+					src="/assets/cloud.png"
 					alt="Upload"
 				/>
 			</label>

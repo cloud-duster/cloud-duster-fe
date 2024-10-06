@@ -12,7 +12,7 @@ const Loading = () => {
 	return <Overlay>
 		<div className="spinner">
 			<div className="loading-text" />
-			<img src="src/assets/cloud-pixel.svg" width="30px" height="30px" />
+			<img src="/assets/cloud-pixel.svg" width="30px" height="30px" />
 		</div>
 	</Overlay>;
 };

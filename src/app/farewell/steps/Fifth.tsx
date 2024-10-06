@@ -51,7 +51,7 @@ const Fifth = () => {
 		<>
 			<img
 				className="cloud"
-				src="src/assets/cloud.png"
+				src="/assets/cloud.png"
 			/>
 			{isLoading && <p>떠나 보내는 중</p>}
 			<div className={

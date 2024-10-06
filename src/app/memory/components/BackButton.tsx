@@ -18,7 +18,7 @@ const BackButton = ({ to, onClickBackButton }: Props) => {
 	};
 
 	return <button onClick={handleClickBack}>
-		<img className="back-button" src="src/assets/cloud.png" />
+		<img className="back-button" src="/assets/cloud.png" />
 	</button>;
 
 };
