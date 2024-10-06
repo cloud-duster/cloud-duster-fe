@@ -5,8 +5,8 @@ import { Memory } from "../api/types/MemoryType";
 import GalleryItem from "./GalleryItem";
 
 const Gallery = () => {
-	// const [cursor, setCursor] = useState();
-	const [isLoading] = useState(true);
+	const [cursor, setCursor] = useState<null | number>(null);
+	const [isLoading, setLoading] = useState(true);
 	const { showLoading, hideLoading } = useLoadingStore();
 	const [list, setList] = useState<Array<Memory>>([]);
 	const bottomRef = useRef<HTMLDivElement>(null);
@@ -19,40 +19,43 @@ const Gallery = () => {
 		}
 	}, [isLoading]);
 
-	// useEffect(() => {
-	// 	const target = bottomRef.current;
-
-	// 	if (!target) {
-	// 		return;
-	// 	}
-
-	// 	const observer = new IntersectionObserver((entries) => {
-	// 		if (entries[0].isIntersecting) {
-	// 			async function fetchMorePosts() {
-	// 				setLoading(true);
-	// 				const res = await fetch("https://jsonplaceholder.typicode.com/posts");
-	// 				const data = await res.json();
-	// 				setList((prevPosts) => [...prevPosts, ...data]);
-	// 				setLoading(false);
-	// 			}
-	// 			fetchMorePosts();
-	// 		}
-	// 	});
-
-	// 	observer.observe(target);
-
-	// 	() => observer.unobserve(target);
-	// }, []);
-
 	useEffect(() => {
-		const fetchList = async () => {
-			const response = await getMemoryList();
+		const target = bottomRef.current;
 
-			setList(response.data.items);
+		if (!target) {
+			return;
+		}
+
+		const observer = new IntersectionObserver((entries) => {
+			if (entries[0].isIntersecting) {
+				const fetchMorePosts = async () => {
+					setLoading(true);
+					const response = await getMemoryList(cursor);
+					const { items, nextCursor } = await response.data;
+
+					if (nextCursor) {
+						setCursor(nextCursor.id);
+					} else {
+						// 더 이상 데이터 없는 경우
+						observer.unobserve(target);
+					}
+
+					setList((prevPosts) => [...prevPosts, ...items]);
+					setLoading(false);
+				};
+				fetchMorePosts();
+			}
+		});
+
+		observer.observe(target);
+
+		return () => {
+			if (target) {
+				observer.unobserve(target);
+			}
 		};
+	}, [cursor]);
 
-		fetchList();
-	}, []);
 
 	return <div className="gallery">
 		{list.map((item: Memory) => {

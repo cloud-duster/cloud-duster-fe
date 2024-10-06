@@ -11,7 +11,11 @@ interface Memory {
 }
 
 interface Memories {
-    items: Array<Memory>
+    items: Array<Memory>;
+    nextCursor: {
+        createdAt: string;
+        id: number;
+    }
 }
 
 export { Memories, Memory };
