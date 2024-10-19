@@ -109,7 +109,6 @@ a {
 
 .main-item {
     display: flex;
-    width: 100px;
     height: 100px;
     align-items: center;
     justify-content: center;

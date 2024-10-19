@@ -1,8 +1,8 @@
-import React, { useState } from "react";
 import "@/css/index.css";
-import { useNavigate } from "react-router-dom";
 import Pages from "@/routes";
 import classNames from "classnames";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Logo from "./components/logo/Logo";
 
 const pages = [{
@@ -14,6 +14,11 @@ const pages = [{
 	className: "memory-wrap",
 	href: Pages.Memory,
 	label: "추억하기"
+},
+{
+	className: "summary-wrap",
+	href: Pages.Summary,
+	label: "우리의 먼지는"
 }];
 
 const Main = () => {
@@ -21,11 +26,11 @@ const Main = () => {
 	const [currentIndex, setCurrentIndex] = useState<number>(0);
 
 	const handleLeftClick = () => {
-		setCurrentIndex(Math.max(currentIndex - 1 , 0));
+		setCurrentIndex(Math.max(currentIndex - 1, 0));
 	};
 
 	const handleRightClick = () => {
-		setCurrentIndex(Math.min(currentIndex + 1 , pages.length));
+		setCurrentIndex(Math.min(currentIndex + 1, pages.length));
 	};
 
 	const handleClickPage = (href: string) => () => {
@@ -41,12 +46,12 @@ const Main = () => {
 		}
 		<div className="carousel-track-container">
 			{
-				pages.map(({ label, href, className}, index) => {
+				pages.map(({ label, href, className }, index) => {
 					return <div key={label} className={classNames("main-item column", className, {
 						"hide": index !== currentIndex
 					})}
 					onClick={handleClickPage(href)}>
-						<Logo index={index}/>
+						<Logo index={index} />
 						<div className="neon-text accent pointer">
 							{label}
 						</div>
