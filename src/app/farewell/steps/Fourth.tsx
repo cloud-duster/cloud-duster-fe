@@ -11,31 +11,33 @@ const Fourth = () => {
 		nextPage();
 	};
 
-	return <div className="upper-margin">
-		<div className="left">사진을 보내 줄 장소를<br /> 선택 해 주세요.</div>
-		<div
-			className="goodbye"
-			style={{ backgroundColor: "aliceblue" }}
-			onClick={handleClick}
-			data-value={FarewellLocation.SKY}
-		>
-			하늘
-		</div>
-		<div
-			className="goodbye"
-			style={{ backgroundColor: "gray" }}
-			onClick={handleClick}
-			data-value={FarewellLocation.OCEAN}
-		>
-			바다
-		</div>
-		<div
-			className="goodbye"
-			style={{ backgroundColor: "blueviolet" }}
-			onClick={handleClick}
-			data-value={FarewellLocation.MOUNTAIN}
-		>
-			산
+	return <div className="location-root">
+		<div className="location-wrapper column">
+			<div className="location-wrapper-label">사진을 보내 줄 장소를<br /> 선택 해 주세요.</div>
+			<div
+				className="location-div"
+				onClick={handleClick}
+				data-value={FarewellLocation.SKY}
+			>
+				<img className="location-image" src="/assets/sky.png" />
+				<p className="location-text neon-text">하늘</p>
+			</div>
+			<div
+				className="location-div"
+				onClick={handleClick}
+				data-value={FarewellLocation.OCEAN}
+			>
+				<img className="location-image" src="/assets/sky.png" />
+				<p className="location-text neon-text">바다</p>
+			</div>
+			<div
+				className="location-div"
+				onClick={handleClick}
+				data-value={FarewellLocation.MOUNTAIN}
+			>
+				<img className="location-image" src="/assets/mountain.png" />
+				<p className="location-text neon-text">산</p>
+			</div>
 		</div>
 	</div>;
 };
