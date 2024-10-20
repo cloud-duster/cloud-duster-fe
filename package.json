@@ -2,7 +2,7 @@
   "scripts": {
     "lint": "yarn eslint . --ext .ts,.tsx --config eslint.config.json",
     "lint:fix": "yarn lint --fix",
-    "start": "vite",
+    "start": "vite --host",
     "build": "vite build"
   },
   "type": "module",
