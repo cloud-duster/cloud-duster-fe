@@ -11,9 +11,10 @@ const Fourth = () => {
 		nextPage();
 	};
 
-	return <div className="location-root">
-		<div className="location-wrapper column">
-			<div className="location-wrapper-label">사진을 보내 줄 장소를<br /> 선택 해 주세요.</div>
+	return <div className="location-wrapper">
+		<div className="location-wrapper-label">사진을 보내 줄 장소를<br /> 선택 해 주세요.</div>
+
+		<div className="location-image-wrapper">
 			<div
 				className="location-div"
 				onClick={handleClick}

@@ -11,11 +11,18 @@ input[type="number"]::-webkit-inner-spin-button {
     margin: 0;
 }
 
+html,
 body {
-    overflow: hidden;
-    font-family: 'DOSSaemmul';
+    width: 100%;
+    height: 100%;
     font-size: 25px;
     margin: 0;
+}
+
+#root {
+    position: fixed;
+    overflow: hidden;
+    font-family: 'DOSSaemmul';
 }
 
 button,
@@ -46,7 +53,7 @@ a {
 .wrapper {
     display: flex;
     width: 100%;
-    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
 }
 
 .overlay-layer {
@@ -89,11 +96,16 @@ a {
     right: 13px;
 }
 
+input[type='text'],
+textarea,
+select {
+    font-size: 16px;
+}
+
 .container {
     display: flex;
     width: 100%;
-    height: 100vh;
-    overflow: hidden;
+    height: calc(var(--vh, 1vh) * 100);
     align-items: center;
     justify-content: space-evenly;
     text-align: center;
@@ -150,38 +162,45 @@ a {
     height: 100px;
     position: absolute;
     border-radius: 10%;
-    top: 45%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     animation: float 3s ease-in-out infinite;
 }
 
 .goodbye {
+    margin-top: 10px;
     width: 300px;
     height: 200px;
     resize: none;
 }
 
-.container.location-root {
-    height: 0;
-}
-
 .location-wrapper {
     display: flex;
+    height: calc(var(--vh, 1vh) * 100);
     flex-direction: column;
-    height: calc(100vh - 100px);
+}
+
+.location-image-wrapper {
+    padding: 0 30px 0 30px;
+    display: flex;
+    flex-direction: column;
+    height: 500px;
 }
 
 .location-wrapper-label {
-    height: 30px;
+    padding-top: 20px;
     line-height: 40px;
     text-align: center;
 }
 
 .location-div {
     flex-grow: 1;
-    min-height: 0;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
 
 .location-text {
@@ -195,7 +214,6 @@ a {
 .location-image {
     width: 100%;
     height: 100%;
-    max-height: 100%;
     object-fit: cover;
 }
 
@@ -279,6 +297,8 @@ button {
 .button-area {
     width: 100%;
     display: flex;
+    position: fixed;
+    bottom: 0;
     justify-content: center;
 }
 
@@ -329,6 +349,7 @@ button {
     font-size: 20px;
     width: 100%;
     margin: 30px;
+    margin-bottom: 20px;
     height: 30px;
 
     box-shadow:
