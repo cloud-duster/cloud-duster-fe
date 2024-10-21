@@ -30,11 +30,10 @@ const Third = () => {
 	useValidateNextButton({ disableCondition: !textCount });
 
 	return (
-		<>
-			<div className="upper-margin">
+		<div className="third-wrapper">
+			<div>
 				<em className="accent">★˚⋱</em> 작별인사 쓰기 <em className="accent">⋰˚★</em>
 			</div>
-
 			<img
 				className="goodbye"
 				src={imageSrc}
@@ -55,7 +54,7 @@ const Third = () => {
 				/>
 				<p className="text-counter">{textCount}/{MAX_LENGTH}</p>
 			</div>
-		</>
+		</div>
 	);
 };
 
