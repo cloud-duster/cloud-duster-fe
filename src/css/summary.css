@@ -1,0 +1,73 @@
+.deleted-wrapper {
+    display: flex;
+    width: 100%;
+    background-color: antiquewhite;
+}
+
+.deleted-title-label {
+    text-align: left;
+    padding: 10px;
+}
+
+.label-right-down {
+    z-index: 3;
+    position: absolute;
+    font-size: 16px;
+    top: 100px;
+    line-height: 20px;
+    right: 0;
+    margin: 0;
+}
+
+.oval-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.oval {
+    position: relative;
+    width: 300px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.oval.first {
+    background-color: #BAFFC5;
+}
+
+.oval.second {
+    background-color: #FFFCBA;
+}
+
+.oval.third {
+    background-color: #FBCEFF;
+}
+
+.oval-text {
+    width: 100%;
+    margin: 0;
+    position: absolute;
+    font-size: 16px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.accent-oval-text {
+    font-size: 20px;
+    font-style: normal;
+}
+
+.accent-oval-text.first {
+    color: #009962;
+}
+
+.accent-oval-text.second {
+    color: #C8C000;
+}
+
+.accent-oval-text.third {
+    color: #D400E6;
+}

@@ -1,7 +1,13 @@
+import "@/css/summary.css";
 import React from "react";
+import DeletedAmount from "./DeletedAmount";
+import ReducedCarbon from "./ReducedCarbon";
 
 const Summary = () => {
-	return <div>summary</div>;
+	return <div className='container column' style={{ overflow: "scroll" }}>
+		<DeletedAmount />
+		<ReducedCarbon />
+	</div>;
 };
 
 export default Summary;
