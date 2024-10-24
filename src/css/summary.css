@@ -1,12 +1,40 @@
 .deleted-wrapper {
     display: flex;
     width: 100%;
-    background-color: antiquewhite;
 }
 
 .deleted-title-label {
     text-align: left;
     padding: 10px;
+}
+
+.deleted-quota-wrapper {
+    height: 300px;
+    position: relative;
+}
+
+.deleted-quota-image {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    width: 300px;
+}
+
+.deleted-quota {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    font-size: 50px;
+}
+
+.deleted-quota-label {
+    font-size: 16px;
+    position: absolute;
+    top: 80%;
+    left: 50%;
 }
 
 .label-right-down {
@@ -70,4 +98,53 @@
 
 .accent-oval-text.third {
     color: #D400E6;
+}
+
+.carbon-text {
+    font-size: 16px;
+}
+
+.grid-container {
+    margin: 15px;
+    display: grid;
+    grid-template-columns: repeat(2, 100px);
+    grid-gap: 70px;
+    justify-content: center;
+    align-content: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: #FAFAFA;
+}
+
+.grid-item-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.grid-item {
+    position: relative;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 100px;
+    width: 100px;
+    overflow: hidden;
+}
+
+.label {
+    padding-top: 5px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.grid-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: scale-down;
+    width: 70px;
+    height: 70px;
 }
