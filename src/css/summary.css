@@ -1,11 +1,21 @@
 .deleted-wrapper {
     display: flex;
     width: 100%;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.gradient {
+    height: 170px;
+    width: 100%;
+    position: absolute;
+    background: linear-gradient(to bottom, #0D99FF80, #FFFFFF);
 }
 
 .deleted-title-label {
     text-align: left;
-    padding: 10px;
+    padding: 30px 0px 0px 20px;
+    z-index: 1;
 }
 
 .deleted-quota-wrapper {
@@ -101,7 +111,14 @@
 }
 
 .carbon-text {
+    margin-top: -20px;
+    margin-bottom: 20px;
     font-size: 16px;
+}
+
+.carbon-text-last {
+    font-size: 16px;
+    margin: 30;
 }
 
 .grid-container {

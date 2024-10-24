@@ -2,6 +2,7 @@ import React from "react";
 
 const DeletedAmount = () => {
 	return <div className="deleted-wrapper column">
+		<div className="gradient" />
 		<em className="deleted-title-label">지운 먼지<br />알아보기</em>
 		<div className="deleted-quota-wrapper">
 			<img src="assets/cloud-logo.svg" className="deleted-quota-image" />
