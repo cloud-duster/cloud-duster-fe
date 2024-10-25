@@ -1,3 +1,12 @@
+.summary-container {
+    display: flex;
+    width: 100%;
+    height: calc(var(--vh, 1vh) * 100);
+    align-items: center;
+    text-align: center;
+    line-height: 25px;
+}
+
 .deleted-wrapper {
     display: flex;
     width: 100%;
@@ -164,4 +173,9 @@
     object-fit: scale-down;
     width: 70px;
     height: 70px;
+}
+
+.summary-main-button {
+    width: 100px;
+    margin-bottom: 50px;
 }
