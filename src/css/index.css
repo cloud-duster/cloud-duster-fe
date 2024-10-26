@@ -138,8 +138,20 @@ select {
     color: #B9E1FF;
     text-decoration: none;
     display: block;
-    padding: 10px;
+    position: absolute;
+    padding: 20px;
+    top: 50%;
+    transform: translateY(-50%);
 }
+
+.right-btn {
+    right: 0;
+}
+
+.left-btn {
+    left: 0;
+}
+
 
 .left-btn.neon-text,
 .right-btn.neon-text {
