@@ -1,6 +1,7 @@
 #root {
     width: 100%;
     height: 100vh;
+    overflow: scroll;
 }
 
 .memory_root {
@@ -11,18 +12,23 @@
 }
 
 .gallery {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: flex-start;
+    margin: 15px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    grid-gap: 70px;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    padding-bottom: 50px;
 }
 
 .gallery-item {
-    flex: 0 0 100px;
+    position: relative;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     height: 100px;
     width: 100px;
-    margin-left: 10px;
-    margin-bottom: 10px;
     overflow: hidden;
 }
 
@@ -31,7 +37,6 @@
     height: 100%;
     object-fit: cover;
     display: block;
-    background-color: gray;
 }
 
 .detail-wrap {
@@ -48,15 +53,15 @@
     padding: 50px;
 }
 
-.detail-image.ocean {
+.ocean {
     box-shadow: #0d11ff 1px 1px 20px 5px;
 }
 
-.detail-image.mountain {
+.mountain {
     box-shadow: green 1px 1px 20px 5px;
 }
 
-.detail-image.sky {
+.sky {
     box-shadow: #0D99FF 1px 1px 20px 5px;
 }
 
@@ -165,10 +170,6 @@
 
 
 @media (max-width: 768px) {
-    .gallery {
-        justify-content: space-evenly;
-    }
-
     .detail-content {
         width: 300px;
         font-size: 18px;
