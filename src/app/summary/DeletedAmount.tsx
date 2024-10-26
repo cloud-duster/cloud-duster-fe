@@ -1,6 +1,17 @@
-import React from "react";
+import React, { FC } from "react";
+import { SummaryData } from "../api/SummaryAPI";
 
-const DeletedAmount = () => {
+interface Props {
+	summary?: SummaryData;
+}
+
+const DeletedAmount: FC<Props> = ({ summary }) => {
+	if (!summary) {
+		return null;
+	}
+
+	const { deletedPhotoCount, avgPhotoSize, peopleCount } = summary;
+
 	return <div className="deleted-wrapper column">
 		<div className="gradient" />
 		<em className="deleted-title-label">지운 먼지<br />알아보기</em>
@@ -13,13 +24,13 @@ const DeletedAmount = () => {
 		<div className="oval-wrapper column">
 			<div className="oval first">
 				<p className="oval-text">
-					<em className="accent-oval-text first">32</em>개의 사진이 지워졌어요.
+					<em className="accent-oval-text first">{deletedPhotoCount}</em>개의 사진이 지워졌어요.
 				</p>
 			</div>
 
 			<div className="oval second">
 				<p className="oval-text">
-					<em className="accent-oval-text second">100</em>명의 클라우드가
+					<em className="accent-oval-text second">{peopleCount}</em>명의 클라우드가
 					정리됐어요.
 				</p>
 			</div>
@@ -27,7 +38,7 @@ const DeletedAmount = () => {
 			<div className="oval third">
 				<p className="oval-text">
 					사진당 평균 용량은{" "}
-					<em className="accent-oval-text third">Nkb</em>
+					<em className="accent-oval-text third">{avgPhotoSize}</em>
 					이에요.
 				</p>
 			</div>
