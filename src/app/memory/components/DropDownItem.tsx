@@ -1,22 +1,25 @@
 import { formatDate } from "@/app/utils/date";
 import React, { FC } from "react";
+import { MemoryDateType } from "../constant/MemoryDate";
 
 interface Props {
-    date: string;
-    onClickDate: (date: string) => void;
+	date: MemoryDateType;
+	onClickDate: (date: MemoryDateType) => void;
+	index: number;
 }
 
-const DropDownItem: FC<Props> = ({ date, onClickDate }) => {
-	const handleClickDate = (date: string) => () => {
+const DropDownItem: FC<Props> = ({ date, onClickDate, index }) => {
+	const handleClickDate = (date: MemoryDateType) => () => {
 		onClickDate(date);
 	};
 
 	return <a
 		className="pointer"
-		key={date}
 		onClick={handleClickDate(date)}
 	>
-		{formatDate(date).toString()}
+		{
+			index === 0 ? "전체" : formatDate(date.value)
+		}
 	</a>;
 };
 

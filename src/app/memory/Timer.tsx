@@ -8,10 +8,11 @@ import { dayAfter } from "../utils/date";
 
 const Timer = () => {
 	const [timeLeft, setTimeLeft] = useState("");
-	const { selectedDate } = useMemoryStore();
+	const { selectedDate, memoryList } = useMemoryStore();
+	const emptyList = !memoryList.length;
 
 	useEffect(() => {
-		const target = dayAfter(selectedDate, 2);
+		const target = dayAfter(selectedDate.value, 3);
 
 		if (!target.isValid()) {
 			return;
@@ -35,13 +36,15 @@ const Timer = () => {
 		return () => clearInterval(intervalId);
 	}, [selectedDate]);
 
+	if (emptyList) {
+		return null;
+	}
 
 	return <p className="timer-text">
 		{timeLeft} 후,
 		<br />
 		지구가 좀 더 가벼워져요.
 	</p>;
-
 };
 
 export default Timer;

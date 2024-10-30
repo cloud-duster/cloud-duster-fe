@@ -1,23 +1,18 @@
 import { formatDate } from "@/app/utils/date";
 import useMemoryStore from "@/state/MemoryStore";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import MemoryDate, { DateType, MemoryDateType } from "../constant/MemoryDate";
 import DropDownItem from "./DropDownItem";
 
 const DateDropDown = () => {
-	// TODO: 날짜 API 필요
-	const dates = ["1726837726000", "1726751299000"];
 	const { selectedDate, setSelectedDate } = useMemoryStore();
 	const [showDropDown, setDropDownVisibility] = useState(false);
-
-	useEffect(() => {
-		setSelectedDate(dates[0]);
-	}, []);
 
 	const handleClickSelectedDate = () => {
 		setDropDownVisibility(!showDropDown);
 	};
 
-	const handleClickDate = (date: string) => {
+	const handleClickDate = (date: MemoryDateType) => {
 		setSelectedDate(date);
 		setDropDownVisibility(false);
 	};
@@ -27,7 +22,7 @@ const DateDropDown = () => {
 			onClick={handleClickSelectedDate}
 			className="neon-text accent dropdown-font pointer dropdown-button"
 		>
-			{formatDate(selectedDate)}{" "}
+			{selectedDate.date === DateType.All ? "전체" : formatDate(selectedDate.value)}{" "}
 			<button
 				className="neon-text accent dropdown-font"
 				style={{
@@ -39,10 +34,11 @@ const DateDropDown = () => {
 		</div>
 		<div className="dropdown-items">
 			{
-				showDropDown && dates.map((date) => {
+				showDropDown && MemoryDate.map((date, index) => {
 					return <DropDownItem
-						key={date}
+						key={date.date}
 						date={date}
+						index={index}
 						onClickDate={handleClickDate}
 					/>;
 				})
