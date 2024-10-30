@@ -8,9 +8,11 @@ import Timer from "./Timer";
 
 const Memory = () => {
 	return <div className="memory_root">
+		<div className="date-cover column">
+			<DateDropDown />
+			<Timer />
+		</div>
 		<BackButton to={Pages.Main} />
-		<DateDropDown />
-		<Timer />
 		<Gallery />
 	</div>;
 };

@@ -12,6 +12,39 @@
     margin: 0;
 }
 
+.empty-gallery-root {
+    align-items: center;
+    justify-content: space-evenly;
+    display: flex;
+    height: 100vh;
+}
+
+.empty-image-wrapper {
+    width: 100%;
+    height: 150px;
+    position: relative;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.empty-desc {
+    text-align: center;
+}
+
+.question-mark {
+    color: #747474;
+    font-size: 80px;
+}
+
+.empty-gallery-button {
+    width: 150px;
+}
+
 .gallery {
     margin: 15px;
     display: grid;
@@ -50,9 +83,8 @@
 }
 
 .detail-image {
-    height: 100px;
-    width: 100px;
-    padding: 50px;
+    height: 200px;
+    width: 200px;
 }
 
 .ocean {
@@ -65,6 +97,12 @@
 
 .sky {
     box-shadow: #0D99FF 1px 1px 20px 5px;
+}
+
+.date-cover {
+    margin-left: 3vh;
+    margin-top: 3vh;
+    display: flex;
 }
 
 .dropdown {
@@ -80,7 +118,7 @@
 }
 
 .dropdown-font {
-    font-size: 25px;
+    font-size: 35px;
 }
 
 .dropdown-items {
@@ -175,5 +213,13 @@
     .detail-content {
         width: 300px;
         font-size: 18px;
+    }
+
+    .dropdown-font {
+        font-size: 30px;
+    }
+
+    .timer-text {
+        font-size: 20px;
     }
 }

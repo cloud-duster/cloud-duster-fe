@@ -1,15 +1,18 @@
 import useLoadingStore from "@/state/LoadingStore";
+import useMemoryStore from "@/state/MemoryStore";
 import React, { useEffect, useRef, useState } from "react";
 import { getMemoryList } from "../api/MemoryAPI";
 import { Memory } from "../api/types/MemoryType";
+import EmptyGallery from "./EmptyGallery";
 import GalleryItem from "./GalleryItem";
 
 const Gallery = () => {
 	const [cursor, setCursor] = useState<null | number>(null);
 	const [isLoading, setLoading] = useState(true);
 	const { showLoading, hideLoading } = useLoadingStore();
-	const [list, setList] = useState<Array<Memory>>([]);
+	const { selectedDate, appendMemoryList, memoryList, setMemoryList } = useMemoryStore();
 	const bottomRef = useRef<HTMLDivElement>(null);
+	const observerRef = useRef<IntersectionObserver | null>(null);
 
 	useEffect(() => {
 		if (isLoading) {
@@ -19,6 +22,27 @@ const Gallery = () => {
 		}
 	}, [isLoading]);
 
+	const fetchMore = async (newCursor: number | null) => {
+		setLoading(true);
+		const response = await getMemoryList(newCursor, selectedDate.date);
+		const { items, nextCursor } = await response.data;
+
+		if (nextCursor) {
+			setCursor(nextCursor.id);
+		} else {
+			observerRef.current?.disconnect();
+		}
+
+		appendMemoryList(items);
+		setLoading(false);
+	};
+
+	useEffect(() => {
+		setMemoryList([]);
+		setCursor(null);
+		fetchMore(null);
+	}, [selectedDate.date]);
+
 	useEffect(() => {
 		const target = bottomRef.current;
 
@@ -26,43 +50,29 @@ const Gallery = () => {
 			return;
 		}
 
-		const observer = new IntersectionObserver((entries) => {
-			if (entries[0].isIntersecting) {
-				const fetchMorePosts = async () => {
-					setLoading(true);
-					const response = await getMemoryList(cursor);
-					const { items, nextCursor } = await response.data;
-
-					if (nextCursor) {
-						setCursor(nextCursor.id);
-					} else {
-						// 더 이상 데이터 없는 경우
-						observer.unobserve(target);
-					}
-
-					setList((prevPosts) => [...prevPosts, ...items]);
-					setLoading(false);
-				};
-				fetchMorePosts();
+		observerRef.current = new IntersectionObserver((entries) => {
+			if (entries[0].isIntersecting && cursor) {
+				fetchMore(cursor);
 			}
 		});
 
-		observer.observe(target);
+		observerRef.current.observe(target);
 
 		return () => {
-			if (target) {
-				observer.unobserve(target);
-			}
+			observerRef.current?.disconnect();
 		};
 	}, [cursor]);
 
-
-	return <div className="gallery">
-		{list.map((item: Memory) => {
-			return <GalleryItem item={item} key={item.id} />;
-		})}
-		<div className="gallery-cursor" ref={bottomRef} />
-	</div>;
+	if (!memoryList.length && !isLoading) {
+		return <EmptyGallery />;
+	} else {
+		return <div className="gallery">
+			{memoryList.map((item: Memory) => {
+				return <GalleryItem item={item} key={item.id} />;
+			})}
+			<div className="gallery-cursor" ref={bottomRef} />
+		</div>;
+	}
 };
 
 export default Gallery;
