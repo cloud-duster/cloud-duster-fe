@@ -1,45 +1,45 @@
-import { createMemory } from "@/app/api/FarewellAPI";
 import Button from "@/components/Button";
+import "@/css/animation.css";
 import useFarewellStore from "@/state/FarewellStore";
-import useLoadingStore from "@/state/LoadingStore";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Loading from "./Loading";
 
 const Fifth = () => {
 	const { deletedFileCount, resetStore, file, nickName, selectedLocation, farewell } = useFarewellStore();
 	const [isLoading, setLoading] = useState(true);
-	const { showLoading, hideLoading } = useLoadingStore();
+	// const { showLoading, hideLoading } = useLoadingStore();
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		showLoading();
+		// showLoading();
 
-		const saveMemory = async () => {
-			if (!file) {
-				return;
-			}
+		// const saveMemory = async () => {
+		// 	if (!file) {
+		// 		return;
+		// 	}
 
-			try {
-				const response = await createMemory({
-					image: file,
-					nickname: nickName,
-					location: selectedLocation,
-					message: farewell
-				});
+		// 	try {
+		// 		const response = await createMemory({
+		// 			image: file,
+		// 			nickname: nickName,
+		// 			location: selectedLocation,
+		// 			message: farewell
+		// 		});
 
-				if (response) {
-					hideLoading();
-					setLoading(false);
-				}
-			} catch (error) {
-				hideLoading();
-				handleClickMain();
-			}
-		};
+		// 		if (response) {
+		// 			hideLoading();
+		// 			setLoading(false);
+		// 		}
+		// 	} catch (error) {
+		// 		hideLoading();
+		// 		handleClickMain();
+		// 	}
+		// };
 
-		saveMemory();
+		// saveMemory();
 
-		return () => setLoading(true);
+		// return () => setLoading(true);
 	}, [file]);
 
 	const handleClickMain = () => {
@@ -47,13 +47,16 @@ const Fifth = () => {
 		resetStore();
 	};
 
+	if (isLoading) {
+		return <Loading />;
+	}
+
 	return (
 		<>
 			<img
 				className="cloud"
 				src="/assets/cloud.png"
 			/>
-			{isLoading && <p>떠나 보내는 중</p>}
 			<div className={
 				`deleted-quota-info
                 ${isLoading ? "fade-out" : "fade-in"}`
