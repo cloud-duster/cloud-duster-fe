@@ -24,12 +24,26 @@ const Loading = () => {
 			<div className="bubble bubble--11"></div>
 			<div className="bubble bubble--12"></div>
 			<div className="animation-image-wrapper">
-				<p className="accent neon-text">떠나 보내는 중...</p>
+				<p className="accent neon-text farewell-text">떠나 보내는 중...</p>
 				<img className="drowning-image" src={URL.createObjectURL(file)} />
 			</div>
 		</div>;
-	} else {
-		return <div>test</div>;
+	} else if (selectedLocation === FarewellLocation.MOUNTAIN) {
+		return <div className="flame-background column">
+			<p className="flame-text farewell-text">떠나 보내는 중...</p>
+			<div className="flame-wrapper">
+				<img className="flame-image" src={URL.createObjectURL(file)} />
+				<div className="flame" />
+			</div>
+		</div>;
+	} else if (selectedLocation === FarewellLocation.SKY) {
+		return <div>
+			<p className="farewell-text">떠나 보내는 중...</p>
+			<div className="flame-wrapper">
+				<img className="flame-image" src={URL.createObjectURL(file)} />
+				<div className="flame" />
+			</div>
+		</div>
 	}
 };
 
