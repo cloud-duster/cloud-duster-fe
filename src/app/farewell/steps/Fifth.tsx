@@ -1,19 +1,18 @@
 import { createMemory } from "@/app/api/FarewellAPI";
 import Button from "@/components/Button";
+import "@/css/animation.css";
+import Pages from "@/routes";
 import useFarewellStore from "@/state/FarewellStore";
-import useLoadingStore from "@/state/LoadingStore";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Loading from "./Loading";
 
 const Fifth = () => {
 	const { deletedFileCount, resetStore, file, nickName, selectedLocation, farewell } = useFarewellStore();
 	const [isLoading, setLoading] = useState(true);
-	const { showLoading, hideLoading } = useLoadingStore();
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		showLoading();
-
 		const saveMemory = async () => {
 			if (!file) {
 				return;
@@ -28,24 +27,25 @@ const Fifth = () => {
 				});
 
 				if (response) {
-					hideLoading();
 					setLoading(false);
 				}
 			} catch (error) {
-				hideLoading();
 				handleClickMain();
+				setLoading(false);
 			}
 		};
 
 		saveMemory();
-
-		return () => setLoading(true);
 	}, [file]);
 
 	const handleClickMain = () => {
-		navigate("/");
+		navigate(Pages.Summary);
 		resetStore();
 	};
+
+	if (isLoading) {
+		return <Loading />;
+	}
 
 	return (
 		<>
@@ -53,7 +53,6 @@ const Fifth = () => {
 				className="cloud"
 				src="/assets/cloud.png"
 			/>
-			{isLoading && <p>떠나 보내는 중</p>}
 			<div className={
 				`deleted-quota-info
                 ${isLoading ? "fade-out" : "fade-in"}`
@@ -64,7 +63,7 @@ const Fifth = () => {
 				<p className="shade">
 					1kb의 전력으로는 물 4방울,<br /> 열 10도의 에너지를 아낄 수 있어요.
 				</p>
-				<Button className="to-main" onClick={handleClickMain}>메인으로</Button>
+				<Button className="to-main" onClick={handleClickMain}>얼마나 아꼈는지 보러가기</Button>
 			</div>
 		</>
 	);

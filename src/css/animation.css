@@ -1,0 +1,326 @@
+.animation-image-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100vh;
+}
+
+.drowning-image {
+    width: 200px;
+    height: 200px;
+    animation: drowning 10s ease-in-out infinite,
+        sideWays 2s ease-in-out infinite alternate;
+}
+
+@keyframes flying {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(0, calc(-100vh - 300px));
+    }
+}
+
+@keyframes drowning {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(-50vw, calc(100vh + 300px));
+    }
+}
+
+.ocean {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(0deg, #182848, #2980b9)
+}
+
+.bubble {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    position: absolute;
+    background-color: white;
+    bottom: -30px;
+    opacity: 0.2;
+    animation: bubble 15s ease-in-out infinite,
+        sideWays 4s ease-in-out infinite alternate;
+}
+
+.farewell-text {
+    font-size: 20px;
+}
+
+@keyframes bubble {
+    0% {
+        transform: translateY(0%);
+        opacity: 0.06;
+    }
+
+    100% {
+        transform: translateY(-120vh);
+    }
+}
+
+@keyframes sideWays {
+    0% {
+        margin-left: 0px;
+    }
+
+    100% {
+        margin-left: 200px;
+    }
+}
+
+.bubble--1 {
+    left: 10%;
+    animation-delay: 0.5s;
+    animation-duration: 16s;
+    opacity: 0.2;
+}
+
+.bubble--2 {
+    width: 15px;
+    height: 15px;
+    left: 40%;
+    animation-delay: 1s;
+    animation-duration: 10s;
+    opacity: 0.1;
+}
+
+.bubble--3 {
+    width: 10px;
+    height: 10px;
+    left: 30%;
+    animation-delay: 5s;
+    animation-duration: 20s;
+    opacity: 0.3;
+}
+
+.bubble--4 {
+    width: 25px;
+    height: 25px;
+    left: 40%;
+    animation-delay: 8s;
+    animation-duration: 17s;
+    opacity: 0.2;
+}
+
+.bubble--5 {
+    width: 30px;
+    height: 30px;
+    left: 60%;
+    animation-delay: 10s;
+    animation-duration: 15s;
+    opacity: 0.1;
+}
+
+.bubble--6 {
+    width: 10px;
+    height: 10px;
+    left: 80%;
+    animation-delay: 3s;
+    animation-duration: 30s;
+    opacity: 0.4;
+}
+
+.bubble--7 {
+    width: 15px;
+    height: 15px;
+    left: 90%;
+    animation-delay: -7s;
+    animation-duration: 25s;
+    opacity: 0.3;
+}
+
+.bubble--9 {
+    width: 20px;
+    height: 20px;
+    left: 50%;
+    bottom: 30px;
+    animation-delay: -5s;
+    animation-duration: 19s;
+    opacity: 0.2;
+}
+
+.bubble--10 {
+    width: 40px;
+    height: 40px;
+    left: 30%;
+    bottom: 30px;
+    animation-delay: -21s;
+    animation-duration: 16s;
+    opacity: 0.3;
+}
+
+.bubble--11 {
+    width: 30px;
+    height: 30px;
+    left: 60%;
+    bottom: 30px;
+    animation-delay: -13.75s;
+    animation-duration: 20s;
+    opacity: 0.3;
+}
+
+.bubble--11 {
+    width: 25px;
+    height: 25px;
+    left: 90%;
+    bottom: 30px;
+    animation-delay: -10.5s;
+    animation-duration: 19s;
+    opacity: 0.3;
+}
+
+.flame-background {
+    background: radial-gradient(ellipse at top, #000000, #ff000000), radial-gradient(ellipse at bottom, #ff9925, #000000);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.flame-text {
+    z-index: 3;
+    color: orange;
+    text-shadow: red 0 1px 5px, red 2px 2px 5px, red -1px 1px 5px;
+    position: absolute;
+    top: 20%;
+}
+
+.flame-wrapper {
+    position: relative;
+}
+
+.flame-image {
+    width: 200px;
+    height: 200px;
+    z-index: -1;
+    animation: fade-out 5s infinite;
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.flame {
+    z-index: 3;
+    top: 30%;
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(-45deg, red, orange);
+    border-radius: 150px 150px 0px 150px;
+    transform: rotate(-135deg) translate(-50%, -50%);
+    animation: .3s flame infinite;
+    filter: blur(10px);
+    position: absolute;
+    box-shadow: 17px 20px 90px #700;
+    border: 45px solid black;
+    border-left-width: 25px;
+    border-top-width: 25px;
+
+    &:after,
+    &:before {
+        content: '';
+        width: 100px;
+        height: 100px;
+        display: block;
+        position: absolute;
+        background: linear-gradient(-45deg, red, orange);
+        animation: .2s flame infinite;
+        transform: scale(.8) rotate(20deg);
+        border-radius: 100px 100px 0px 100px;
+        top: 20px;
+    }
+
+    &:before {
+        top: 0;
+        animation-duration: .2s;
+        transform: scale(.9) rotate(-15deg) translate(10px, 0px);
+    }
+}
+
+@keyframes flame {
+    0% {
+        height: 150px;
+        width: 150px;
+    }
+
+    50% {
+        height: 140px;
+        width: 140px;
+    }
+
+    100% {
+        height: 150px;
+        width: 150px;
+    }
+}
+
+.fly-background {
+    width: 100vh;
+    height: 100vh;
+    z-index: -1;
+}
+
+.sky-text {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.fly-image {
+    width: 200px;
+    height: 200px;
+}
+
+.fly-wrapper {
+    animation: fly 4s cubic-bezier(0.6, -0.28, 0.74, 0.05) infinite;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    justify-content: space-around;
+    width: 250px;
+}
+
+.wing {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    z-index: 3;
+}
+
+.wing.left {
+    left: 0;
+    margin: 10;
+}
+
+.wing.right {
+    transform: scaleX(-1);
+    right: 0;
+}
+
+@keyframes fly {
+    0% {
+        top: 50%;
+    }
+
+    100% {
+        top: -50%;
+        opacity: 0;
+    }
+}
