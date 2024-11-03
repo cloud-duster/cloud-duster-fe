@@ -37,11 +37,13 @@ const Loading = () => {
 			</div>
 		</div>;
 	} else if (selectedLocation === FarewellLocation.SKY) {
-		return <div>
-			<p className="farewell-text">떠나 보내는 중...</p>
-			<div className="flame-wrapper">
-				<img className="flame-image" src={URL.createObjectURL(file)} />
-				<div className="flame" />
+		return <div className="animation-image-wrapper">
+			<img src="/assets/farewell-sky.png" className="fly-background" />
+			<p className="farewell-text neon-text sky-text">떠나 보내는 중...</p>
+			<div className="fly-wrapper">
+				<img className="wing left" src="/assets/wing.svg" />
+				<img className="fly-image" src={URL.createObjectURL(file)} />
+				<img className="wing right" src="/assets/wing.svg" />
 			</div>
 		</div>
 	}

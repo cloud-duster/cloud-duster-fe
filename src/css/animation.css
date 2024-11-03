@@ -269,3 +269,58 @@
         width: 150px;
     }
 }
+
+.fly-background {
+    width: 100vh;
+    height: 100vh;
+    z-index: -1;
+}
+
+.sky-text {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.fly-image {
+    width: 200px;
+    height: 200px;
+}
+
+.fly-wrapper {
+    animation: fly 4s cubic-bezier(0.6, -0.28, 0.74, 0.05) infinite;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    justify-content: space-around;
+    width: 250px;
+}
+
+.wing {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    z-index: 3;
+}
+
+.wing.left {
+    left: 0;
+    margin: 10;
+}
+
+.wing.right {
+    transform: scaleX(-1);
+    right: 0;
+}
+
+@keyframes fly {
+    0% {
+        top: 50%;
+    }
+
+    100% {
+        top: -50%;
+        opacity: 0;
+    }
+}
