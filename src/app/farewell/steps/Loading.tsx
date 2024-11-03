@@ -45,7 +45,7 @@ const Loading = () => {
 				<img className="fly-image" src={URL.createObjectURL(file)} />
 				<img className="wing right" src="/assets/wing.svg" />
 			</div>
-		</div>
+		</div>;
 	}
 };
 

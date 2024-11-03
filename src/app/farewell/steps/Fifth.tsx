@@ -1,5 +1,7 @@
+import { createMemory } from "@/app/api/FarewellAPI";
 import Button from "@/components/Button";
 import "@/css/animation.css";
+import Pages from "@/routes";
 import useFarewellStore from "@/state/FarewellStore";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -8,42 +10,36 @@ import Loading from "./Loading";
 const Fifth = () => {
 	const { deletedFileCount, resetStore, file, nickName, selectedLocation, farewell } = useFarewellStore();
 	const [isLoading, setLoading] = useState(true);
-	// const { showLoading, hideLoading } = useLoadingStore();
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		// showLoading();
+		const saveMemory = async () => {
+			if (!file) {
+				return;
+			}
 
-		// const saveMemory = async () => {
-		// 	if (!file) {
-		// 		return;
-		// 	}
+			try {
+				const response = await createMemory({
+					image: file,
+					nickname: nickName,
+					location: selectedLocation,
+					message: farewell
+				});
 
-		// 	try {
-		// 		const response = await createMemory({
-		// 			image: file,
-		// 			nickname: nickName,
-		// 			location: selectedLocation,
-		// 			message: farewell
-		// 		});
+				if (response) {
+					setLoading(false);
+				}
+			} catch (error) {
+				handleClickMain();
+				setLoading(false);
+			}
+		};
 
-		// 		if (response) {
-		// 			hideLoading();
-		// 			setLoading(false);
-		// 		}
-		// 	} catch (error) {
-		// 		hideLoading();
-		// 		handleClickMain();
-		// 	}
-		// };
-
-		// saveMemory();
-
-		// return () => setLoading(true);
+		saveMemory();
 	}, [file]);
 
 	const handleClickMain = () => {
-		navigate("/");
+		navigate(Pages.Summary);
 		resetStore();
 	};
 
@@ -67,7 +63,7 @@ const Fifth = () => {
 				<p className="shade">
 					1kb의 전력으로는 물 4방울,<br /> 열 10도의 에너지를 아낄 수 있어요.
 				</p>
-				<Button className="to-main" onClick={handleClickMain}>메인으로</Button>
+				<Button className="to-main" onClick={handleClickMain}>얼마나 아꼈는지 보러가기</Button>
 			</div>
 		</>
 	);
