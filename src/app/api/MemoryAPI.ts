@@ -10,7 +10,7 @@ const getMemoryList = async (cursorId: number | null, date: DateType) => {
 };
 
 const getMemory = async (id: string) => {
-	return await axios.get<{ result: Array<Memory> }>(`${URL_API}/memories/${id}`);
+	return await axios.get<{ result: Array<Memory> }>(`${URL_API}/memories/${id}`, { withCredentials: true });
 };
 
 export { getMemory, getMemoryList };

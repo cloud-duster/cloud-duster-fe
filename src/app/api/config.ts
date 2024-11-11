@@ -1,4 +1,4 @@
-const URL_API = "http://110.165.18.86:3000";
+const URL_API = "https://api.cloudster.site";
 
 
 export { URL_API };
