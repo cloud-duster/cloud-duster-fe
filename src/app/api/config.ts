@@ -1,4 +1,3 @@
-const URL_API = "https://api.cloudster.site";
-
+const URL_API = "https://api.clouduster.site/";
 
 export { URL_API };
