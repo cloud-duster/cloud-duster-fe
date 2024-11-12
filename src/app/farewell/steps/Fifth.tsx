@@ -49,10 +49,7 @@ const Fifth = () => {
 
 	return (
 		<>
-			<img
-				className="cloud"
-				src="/assets/cloud.png"
-			/>
+			<img src="/assets/cloud.webp" className="cloud" />
 			<div className={
 				`deleted-quota-info
                 ${isLoading ? "fade-out" : "fade-in"}`

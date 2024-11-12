@@ -43,11 +43,7 @@ const Second = () => {
 				id="floating_image"
 			/>
 			<label htmlFor="file">
-				<img
-					className="cloud upload"
-					src="/assets/cloud.png"
-					alt="Upload"
-				/>
+				<img src="/assets/cloud.webp" className="cloud upload" />
 			</label>
 			<input
 				accept="image/*"
