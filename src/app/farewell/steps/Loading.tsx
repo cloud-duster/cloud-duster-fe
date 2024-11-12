@@ -38,7 +38,7 @@ const Loading = () => {
 		</div>;
 	} else if (selectedLocation === FarewellLocation.SKY) {
 		return <div className="animation-image-wrapper">
-			<img src="/assets/farewell-sky.png" className="fly-background" />
+			<img src="/assets/farewell-sky.webp" className="fly-background" />
 			<p className="farewell-text neon-text sky-text">떠나 보내는 중...</p>
 			<div className="fly-wrapper">
 				<img className="wing left" src="/assets/wing.svg" />

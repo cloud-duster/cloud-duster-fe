@@ -20,7 +20,7 @@ const Fourth = () => {
 				onClick={handleClick}
 				data-value={FarewellLocation.SKY}
 			>
-				<img className="location-image" src="/assets/sky.png" />
+				<img src="/assets/sky.webp" className="location-image" />
 				<p className="location-text neon-text">하늘</p>
 			</div>
 			<div
@@ -28,7 +28,7 @@ const Fourth = () => {
 				onClick={handleClick}
 				data-value={FarewellLocation.OCEAN}
 			>
-				<img className="location-image" src="/assets/sky.png" />
+				<img src="/assets/sky.webp" className="location-image" />
 				<p className="location-text neon-text">바다</p>
 			</div>
 			<div
@@ -36,7 +36,7 @@ const Fourth = () => {
 				onClick={handleClick}
 				data-value={FarewellLocation.MOUNTAIN}
 			>
-				<img className="location-image" src="/assets/mountain.png" />
+				<img src="/assets/mountain.webp" className="location-image" />
 				<p className="location-text neon-text">산</p>
 			</div>
 		</div>
