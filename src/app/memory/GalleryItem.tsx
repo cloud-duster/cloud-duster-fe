@@ -17,7 +17,7 @@ const GalleryItem: FC<Props> = ({ item }) => {
 	};
 
 	return <div className={classNames("gallery-item", location.toLowerCase())} onClick={handleClickItem}>
-		<img src={image_url} />
+		<img src={image_url} loading="lazy" />
 	</div>;
 };
 
