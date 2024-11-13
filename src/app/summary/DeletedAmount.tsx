@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import { SummaryData } from "../api/SummaryAPI";
+import formatToMB from "../utils/quota";
 
 interface Props {
 	summary?: SummaryData;
@@ -38,7 +39,7 @@ const DeletedAmount: FC<Props> = ({ summary }) => {
 			<div className="oval third">
 				<p className="oval-text">
 					사진당 평균 용량은{" "}
-					<em className="accent-oval-text third">{avgPhotoSize}</em>
+					<em className="accent-oval-text third">{formatToMB(avgPhotoSize)}</em>
 					이에요.
 				</p>
 			</div>
