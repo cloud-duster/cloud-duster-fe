@@ -45,6 +45,12 @@ const Fifth = () => {
 		resetStore();
 	};
 
+	const handleClickToSummary = () => {
+		navigate(Pages.Summary);
+		resetStore();
+	};
+
+
 	if (isLoading) {
 		return <Loading />;
 	}
@@ -67,7 +73,7 @@ const Fifth = () => {
 				<p className="shade">
 					1kb의 전력으로는 물 4방울,<br /> 열 10도의 에너지를 아낄 수 있어요.
 				</p>
-				<Button className="to-main" onClick={handleClickMain}>얼마나 아꼈는지 보러가기</Button>
+				<Button className="to-main" onClick={handleClickToSummary}>얼마나 아꼈는지 보러가기</Button>
 			</div>
 		</>
 	);
