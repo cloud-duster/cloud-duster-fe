@@ -38,7 +38,7 @@ const ReducedList: FC<Props> = ({ reducedCarbon }) => {
 			<div className="grid-item">
 				<img src="/assets/paper.webp" className="grid-image" />
 			</div>
-			<div className="label">A4용지<br /> <em className="accent">{getFixedValue(80 * reducedCarbon, FIXED)}</em>장</div>
+			<div className="label">A4용지<br /> <em className="accent">{getFixedValue(1, FIXED)}</em>장</div>
 		</div>
 		<div className="grid-item-wrapper">
 			<div className="grid-item">

@@ -1,4 +1,5 @@
 import { createMemory } from "@/app/api/FarewellAPI";
+import { getFixedValue, getMBQuota } from "@/app/utils/quota";
 import Button from "@/components/Button";
 import "@/css/animation.css";
 import Pages from "@/routes";
@@ -13,6 +14,10 @@ const Fifth = () => {
 	const [isLoading, setLoading] = useState(true);
 	const [hasError, setError] = useState(false);
 	const navigate = useNavigate();
+	const fileSize = file?.size || 1;
+	const deletedQuota = deletedFileCount * fileSize;
+	const deletedQuotaInMB = getMBQuota(deletedQuota);
+	const deletedQuotaInGB = deletedQuotaInMB / 1024;
 
 	useEffect(() => {
 		const saveMemory = async () => {
@@ -55,23 +60,29 @@ const Fifth = () => {
 		return <Loading />;
 	}
 
+	if (hasError) {
+		return <Alert onClickClose={handleClickMain}>
+			<p>에러가 발생했습니다.<br />다시 시도 해 주세요.</p>
+		</Alert>;
+	}
+
 	return (
 		<>
-			{
-				hasError && <Alert onClickClose={handleClickMain}>
-					<p>에러가 발생했습니다.<br />다시 시도 해 주세요.</p>
-				</Alert>
-			}
-			<img src="/assets/cloud.webp" className="cloud" />
+			<div>
+				<img src="assets/cloud.webp" className="cloud" />
+				<div className="confetti" /><div className="confetti" /><div className="confetti" />
+				<div className="confetti" /><div className="confetti" /><div className="confetti" />
+				<div className="confetti" />
+			</div>
 			<div className={
 				`deleted-quota-info
                 ${isLoading ? "fade-out" : "fade-in"}`
 			}>
 				<p className="deleted-quota-text">
-					<em className="accent">{deletedFileCount}KB</em> 만큼 가벼워졌어요!
+					<em className="accent">약 {getFixedValue(deletedQuotaInMB, 1)}MB</em> 만큼 가벼워졌어요!
 				</p>
 				<p className="shade">
-					1kb의 전력으로는 물 4방울,<br /> 열 10도의 에너지를 아낄 수 있어요.
+					클라우드에서 {getFixedValue(deletedQuotaInMB)}MB을 지우면 물 {getFixedValue(deletedQuotaInGB * 1000)}L,<br /> 종이 {getFixedValue(deletedQuotaInGB * 80)}장을 아낄 수 있어요.
 				</p>
 				<Button className="to-main" onClick={handleClickToSummary}>얼마나 아꼈는지 보러가기</Button>
 			</div>

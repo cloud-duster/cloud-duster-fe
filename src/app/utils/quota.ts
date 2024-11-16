@@ -1,6 +1,6 @@
 const getMBQuota = (bytes: number) => {
-	const gb = bytes / (1024 * 1024);
-	return parseFloat(gb.toFixed(2));
+	const mb = bytes / (1024 * 1024);
+	return parseFloat(mb.toFixed(2));
 };
 
 const getFixedValue = (value: number, fixed: number = 0) => {
