@@ -6,10 +6,12 @@ import useFarewellStore from "@/state/FarewellStore";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Loading from "./Loading";
+import Alert from "./components/Alert";
 
 const Fifth = () => {
 	const { deletedFileCount, resetStore, file, nickName, selectedLocation, farewell } = useFarewellStore();
 	const [isLoading, setLoading] = useState(true);
+	const [hasError, setError] = useState(false);
 	const navigate = useNavigate();
 
 	useEffect(() => {
@@ -30,8 +32,8 @@ const Fifth = () => {
 					setLoading(false);
 				}
 			} catch (error) {
-				handleClickMain();
 				setLoading(false);
+				setError(true);
 			}
 		};
 
@@ -39,7 +41,7 @@ const Fifth = () => {
 	}, [file]);
 
 	const handleClickMain = () => {
-		navigate(Pages.Summary);
+		navigate(Pages.Main);
 		resetStore();
 	};
 
@@ -49,6 +51,11 @@ const Fifth = () => {
 
 	return (
 		<>
+			{
+				hasError && <Alert onClickClose={handleClickMain}>
+					<p>에러가 발생했습니다.<br />다시 시도 해 주세요.</p>
+				</Alert>
+			}
 			<img src="/assets/cloud.webp" className="cloud" />
 			<div className={
 				`deleted-quota-info
