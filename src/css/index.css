@@ -565,6 +565,71 @@ button {
     }
 }
 
+.confetti {
+    position: absolute;
+    top: -50px;
+    width: 10px;
+    height: 10px;
+    background-color: hsl(calc(360 * var(--hue)), 80%, 60%);
+    animation: fall linear infinite;
+    --hue: 0;
+}
+
+.confetti:nth-child(1) {
+    left: 10%;
+    animation-duration: 3s;
+    --hue: 0.1;
+}
+
+.confetti:nth-child(2) {
+    left: 30%;
+    animation-duration: 4s;
+    --hue: 0.4;
+}
+
+.confetti:nth-child(3) {
+    left: 50%;
+    animation-duration: 2.5s;
+    --hue: 0.6;
+}
+
+.confetti:nth-child(4) {
+    left: 70%;
+    animation-duration: 3.5s;
+    --hue: 0.8;
+}
+
+.confetti:nth-child(5) {
+    left: 90%;
+    animation-duration: 4.2s;
+    --hue: 1;
+}
+
+.confetti:nth-child(6) {
+    left: 80%;
+    animation-duration: 2s;
+    --hue: 0.1;
+}
+
+.confetti:nth-child(7) {
+    left: 10%;
+    animation-duration: 3s;
+    --hue: 0.3;
+}
+
+
+@keyframes fall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
 @media (min-width: 768px) {
     .main-item {
         flex: 0 0 auto;

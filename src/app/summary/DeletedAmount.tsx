@@ -1,24 +1,20 @@
 import React, { FC } from "react";
 import { SummaryData } from "../api/SummaryAPI";
-import formatToMB from "../utils/quota";
+import { getMBQuota } from "../utils/quota";
 
 interface Props {
-	summary?: SummaryData;
+	summary: SummaryData;
 }
 
 const DeletedAmount: FC<Props> = ({ summary }) => {
-	if (!summary) {
-		return null;
-	}
-
-	const { deletedPhotoCount, avgPhotoSize, peopleCount } = summary;
+	const { deletedPhotoCount, avgPhotoSize, peopleCount, totalPhotoSize } = summary;
 
 	return <div className="deleted-wrapper column">
 		<div className="gradient" />
 		<em className="deleted-title-label">지운 먼지<br />알아보기</em>
 		<div className="deleted-quota-wrapper">
 			<img src="assets/cloud-logo.svg" className="deleted-quota-image" />
-			<p className="deleted-quota">30GB</p>
+			<p className="deleted-quota">{getMBQuota(totalPhotoSize)}MB</p>
 			<div className="deleted-quota-label">만큼 가벼워졌어요.</div>
 		</div>
 
@@ -39,7 +35,7 @@ const DeletedAmount: FC<Props> = ({ summary }) => {
 			<div className="oval third">
 				<p className="oval-text">
 					사진당 평균 용량은{" "}
-					<em className="accent-oval-text third">{formatToMB(avgPhotoSize)}</em>
+					<em className="accent-oval-text third">{getMBQuota(avgPhotoSize)}MB</em>
 					이에요.
 				</p>
 			</div>

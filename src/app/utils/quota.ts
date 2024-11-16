@@ -1,6 +1,11 @@
-const formatToMB = (bytes: number) => {
-	const gb = bytes / (1024 * 1024);
-	return `${gb.toFixed(2)}MB`;
+const getMBQuota = (bytes: number) => {
+	const mb = bytes / (1024 * 1024);
+	return parseFloat(mb.toFixed(2));
 };
 
-export default formatToMB;
+const getFixedValue = (value: number, fixed: number = 0) => {
+	return value.toFixed(fixed);
+};
+
+
+export { getFixedValue, getMBQuota };

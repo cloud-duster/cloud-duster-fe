@@ -28,9 +28,13 @@ const Summary = () => {
 		fetchSummary();
 	}, []);
 
+	if (!summary) {
+		return null;
+	}
+
 	return <div className='summary-container column' style={{ overflow: "scroll" }}>
 		<DeletedAmount summary={summary} />
-		<ReducedCarbon />
+		<ReducedCarbon summary={summary} />
 		<Button onClick={handleClickToMain} className="summary-main-button">
 			메인으로
 		</Button>

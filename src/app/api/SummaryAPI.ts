@@ -4,7 +4,8 @@ import { URL_API } from "./config";
 export interface SummaryData {
     deletedPhotoCount: number,
     peopleCount: number,
-    avgPhotoSize: number
+    avgPhotoSize: number,
+    totalPhotoSize: number,
 }
 
 const getSummary = async () => {
