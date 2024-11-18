@@ -28,6 +28,7 @@
 }
 
 .deleted-quota-wrapper {
+    white-space: nowrap;
     height: 300px;
     position: relative;
 }
@@ -93,6 +94,7 @@
 }
 
 .oval-text {
+    white-space: nowrap;
     width: 100%;
     margin: 0;
     position: absolute;
@@ -163,6 +165,7 @@
     padding-top: 5px;
     text-align: center;
     font-size: 16px;
+    white-space: nowrap;
 }
 
 .grid-image {

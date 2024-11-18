@@ -1,5 +1,5 @@
 import { createMemory } from "@/app/api/FarewellAPI";
-import { getFixedValue, getMBQuota } from "@/app/utils/quota";
+import { getFixedLocaleString, getMBQuota } from "@/app/utils/quota";
 import Button from "@/components/Button";
 import "@/css/animation.css";
 import Pages from "@/routes";
@@ -79,10 +79,12 @@ const Fifth = () => {
                 ${isLoading ? "fade-out" : "fade-in"}`
 			}>
 				<p className="deleted-quota-text">
-					<em className="accent">약 {getFixedValue(deletedQuotaInMB, 1)}MB</em> 만큼 가벼워졌어요!
+					<em className="accent">약 {getFixedLocaleString(deletedQuotaInMB, 1)}MB</em> 만큼 가벼워졌어요!
 				</p>
 				<p className="shade">
-					클라우드에서 {getFixedValue(deletedQuotaInMB)}MB을 지우면 물 {getFixedValue(deletedQuotaInGB * 1000)}L,<br /> 종이 {getFixedValue(deletedQuotaInGB * 80)}장을 아낄 수 있어요.
+					클라우드에서 {getFixedLocaleString(deletedQuotaInMB)}MB을 지우면
+					물 {getFixedLocaleString(deletedQuotaInGB * 1000)}L,<br />
+					종이 {getFixedValue(deletedQuotaInGB * 80)}장을 아낄 수 있어요.
 				</p>
 				<Button className="to-main" onClick={handleClickToSummary}>얼마나 아꼈는지 보러가기</Button>
 			</div>

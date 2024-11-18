@@ -28,7 +28,7 @@ const Fourth = () => {
 				onClick={handleClick}
 				data-value={FarewellLocation.OCEAN}
 			>
-				<img src="/assets/sky.webp" className="location-image" />
+				<img src="/assets/ocean.webp" className="location-image" />
 				<p className="location-text neon-text">바다</p>
 			</div>
 			<div
