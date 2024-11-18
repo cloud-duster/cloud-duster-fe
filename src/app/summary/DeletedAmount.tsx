@@ -21,13 +21,13 @@ const DeletedAmount: FC<Props> = ({ summary }) => {
 		<div className="oval-wrapper column">
 			<div className="oval first">
 				<p className="oval-text">
-					<em className="accent-oval-text first">{deletedPhotoCount}</em>개의 사진이 지워졌어요.
+					<em className="accent-oval-text first">{deletedPhotoCount.toLocaleString()}</em>개의 사진이 지워졌어요.
 				</p>
 			</div>
 
 			<div className="oval second">
 				<p className="oval-text">
-					<em className="accent-oval-text second">{peopleCount}</em>명의 클라우드가
+					<em className="accent-oval-text second">{peopleCount.toLocaleString()}</em>명의 클라우드가
 					정리됐어요.
 				</p>
 			</div>
@@ -35,7 +35,7 @@ const DeletedAmount: FC<Props> = ({ summary }) => {
 			<div className="oval third">
 				<p className="oval-text">
 					사진당 평균 용량은{" "}
-					<em className="accent-oval-text third">{getMBQuota(avgPhotoSize)}MB</em>
+					<em className="accent-oval-text third">{getMBQuota(avgPhotoSize)} MB</em>
 					이에요.
 				</p>
 			</div>

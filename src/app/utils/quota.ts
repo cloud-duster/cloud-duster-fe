@@ -3,9 +3,9 @@ const getMBQuota = (bytes: number) => {
 	return parseFloat(mb.toFixed(2));
 };
 
-const getFixedValue = (value: number, fixed: number = 0) => {
-	return value.toFixed(fixed);
+
+const getFixedLocaleString = (value: number, fixed: number = 0) => {
+	return value.toLocaleString("en-US", { maximumSignificantDigits: fixed });
 };
 
-
-export { getFixedValue, getMBQuota };
+export { getFixedLocaleString, getMBQuota };
