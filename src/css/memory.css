@@ -76,15 +76,38 @@
 
 .detail-wrap {
     display: flex;
-    align-items: center;
-    flex-direction: column;
     height: 100%;
-    justify-content: space-evenly;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.detail-image-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .detail-image {
-    height: 200px;
-    width: 200px;
+    max-height: 70vh;
+    max-width: 90%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+.detail-content {
+    margin-top: 30px;
+    max-width: 90%;
+    width: 100%;
+}
+
+.detail-nickname {
+    margin-top: 15px;
+    font-size: 15px;
+    max-width: 90%;
+    width: 100%;
 }
 
 .ocean {
@@ -138,17 +161,6 @@
 
 .timer-text {
     line-height: 30px;
-}
-
-.detail-nickname {
-    font-size: 15px;
-    margin-top: 10px;
-}
-
-.detail-content {
-    width: 500px;
-    font-size: 18px;
-    transform: translateY(-50px);
 }
 
 .back-button {
@@ -210,11 +222,6 @@
 
 
 @media (max-width: 768px) {
-    .detail-content {
-        width: 300px;
-        font-size: 18px;
-    }
-
     .dropdown-font {
         font-size: 30px;
     }

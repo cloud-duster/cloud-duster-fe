@@ -33,7 +33,7 @@ const MemoryDetail: FC = () => {
 		return null;
 	}
 
-	return <div className="detail-wrap">
+	return <div className="detail-wrap column">
 		<BackButton to={Pages.Memory} />
 		<div className="detail-image-wrap">
 			<img
@@ -41,10 +41,10 @@ const MemoryDetail: FC = () => {
 				src={itemDetail.image_url}
 			/>
 			<div className="detail-nickname">{itemDetail.nickname || "익명의 먼지"}</div>
+			<p className="detail-content">
+				{itemDetail.message}
+			</p>
 		</div>
-		<p className="detail-content">
-			{itemDetail.message}
-		</p>
 	</div >;
 };
 
