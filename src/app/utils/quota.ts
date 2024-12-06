@@ -4,7 +4,7 @@ const getMBQuota = (bytes: number) => {
 };
 
 
-const getFixedLocaleString = (value: number, fixed: number = 0) => {
+const getFixedLocaleString = (value: number, fixed: number = 1) => {
 	return value.toLocaleString("en-US", { maximumSignificantDigits: fixed });
 };
 
