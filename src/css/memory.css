@@ -83,6 +83,7 @@
 }
 
 .detail-image-wrap {
+    padding: 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;

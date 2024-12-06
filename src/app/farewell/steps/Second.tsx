@@ -12,6 +12,12 @@ const Second = () => {
 		const selectedFile = e.target.files?.[0] || null;
 
 		if (selectedFile) {
+			const isHeic = selectedFile.type === "image/heic" || selectedFile.type === "image/heif";
+			if (isHeic) {
+				alert("캡쳐된 사진으로 올려주세요!");
+				return;
+			}
+
 			saveFile(selectedFile);
 
 			if (floatingImageRef.current) {
