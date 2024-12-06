@@ -671,3 +671,79 @@ button {
         animation-delay: calc(var(--index) * 0.5s);
     }
 }
+
+.tutorial-alert {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 400px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    z-index: 1000;
+    text-align: center;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.tutorial-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tutorial-title {
+    font-size: 23px;
+    margin-bottom: 10px;
+    color: black;
+}
+
+.tutorial-description {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #666;
+    line-height: 1.5;
+}
+
+.tutorial-button {
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.tutorial-progress {
+    padding-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.progress-dot {
+    width: 5px;
+    height: 5px;
+    background-color: #ddd;
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+.progress-dot.active {
+    background: url('/assets/cloud-pixel.svg');
+    transform: scale(1.5);
+    width: 10px;
+    height: 10px;
+}
