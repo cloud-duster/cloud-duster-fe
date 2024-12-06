@@ -84,7 +84,7 @@ const Fifth = () => {
 				<p className="shade">
 					클라우드에서 {getFixedLocaleString(deletedQuotaInMB)}MB을 지우면
 					물 {getFixedLocaleString(deletedQuotaInGB * 1000)}L,<br />
-					종이 {getFixedValue(deletedQuotaInGB * 80)}장을 아낄 수 있어요.
+					종이 {getFixedLocaleString(deletedQuotaInGB * 80)}장을 아낄 수 있어요.
 				</p>
 				<Button className="to-main" onClick={handleClickToSummary}>얼마나 아꼈는지 보러가기</Button>
 			</div>
