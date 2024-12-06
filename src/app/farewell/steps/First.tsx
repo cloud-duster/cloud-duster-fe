@@ -2,7 +2,7 @@ import useFarewellStore from "@/state/FarewellStore";
 import classNames from "classnames";
 import React, { useEffect, useState } from "react";
 import useValidateNextButton from "../hooks/useValidateNextButton";
-import Alert from "./components/Alert";
+import Tutorial from "./components/Tutorial";
 
 const First = () => {
 	const [value, setValue] = useState("");
@@ -38,15 +38,8 @@ const First = () => {
 
 	return (
 		<>
-			{showLayer && <Alert onClickClose={() => { setShowLayer(false); }}>
-				<p>
-					삭제하기 아쉬운 사진에<br />
-					작별을 고하는 공간입니다.<br />
-					탄소절감량을 확인하며<br />
-					사진을 의미있게 보내보세요.
-				</p>
-			</Alert>}
-			<div>
+			{showLayer && <Tutorial onClickClose={() => { setShowLayer(false); }} />}
+			<div style={{ lineHeight: "30px" }}>
 				사진/동영상을 <em className="accent">몇 장</em>
 				<br /> 보내주셨나요?
 			</div>
