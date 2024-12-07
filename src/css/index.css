@@ -724,6 +724,33 @@ button {
     }
 }
 
+.introduce-wrapper {
+    background-color: white;
+    display: flex;
+    height: 100vh;
+    overflow: auto;
+    padding: 13px;
+}
+
+.introduce-close-button {
+    margin-left: auto;
+}
+
+a {
+    text-decoration: inherit;
+    color: inherit;
+}
+
+.introduce-detail {
+    font-family: '';
+    line-height: 25px;
+    font-size: 16px;
+}
+
+.introduce-margin {
+    margin: 10px 0 10px;
+}
+
 .tutorial-progress {
     padding-top: 15px;
     display: flex;

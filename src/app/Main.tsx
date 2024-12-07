@@ -4,6 +4,7 @@ import classNames from "classnames";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Logo from "./components/logo/Logo";
+import Information from "./Information";
 
 const pages = [{
 	className: "farewell-wrap",
@@ -41,6 +42,7 @@ const Main = () => {
 	const showRightButton = currentIndex !== pages.length - 1;
 
 	return <div className="container">
+		<Information />
 		{
 			showLeftButton && <button className="left-btn neon-text" onClick={handleLeftClick}>&lt;</button>
 		}
