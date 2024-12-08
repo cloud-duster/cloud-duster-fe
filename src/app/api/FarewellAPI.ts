@@ -53,6 +53,10 @@ const convertToWebP = async (file: File, quality: number = 0.8): Promise<File> =
 
 const createMemory = async (params: MemoryParams) => {
 	try {
+		const axiosInstance = axios.create({
+			maxContentLength: Infinity,
+			maxBodyLength: Infinity,
+		});
 		const formData = new FormData();
 		const { nickname, image, location, message, amount } = params;
 		const optimizedImage = await convertToWebP(image);
@@ -64,7 +68,7 @@ const createMemory = async (params: MemoryParams) => {
 		formData.append("location", location);
 		formData.append("size", image.size.toString());
 
-		return await axios.post(`${URL_API}/memory`, formData);
+		return await axiosInstance.post(`${URL_API}/memory`, formData);
 	} catch (e) {
 		console.error("Image optimization failed:", e);
 		throw e;
