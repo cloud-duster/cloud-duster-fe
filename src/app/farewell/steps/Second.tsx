@@ -20,7 +20,7 @@ const Second = () => {
 				alert("캡쳐된 사진으로 올려주세요!");
 				return;
 			} else if (selectedFile.size >= 2097152) {
-				alert("용량이 너무 큰데요? 원본이 아닌 캡쳐된 사진으로 올려주세요!");
+				alert("용량이 너무 큰 것 같아요!\n원본이 아닌 캡쳐된 사진으로 올려주세요.");
 				return;
 			}
 
