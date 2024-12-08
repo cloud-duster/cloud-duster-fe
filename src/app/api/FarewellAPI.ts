@@ -7,6 +7,7 @@ interface MemoryParams {
 	image: File;
 	location: FarewellLocation;
 	message: string;
+	amount: number;
 }
 
 const convertToWebP = async (file: File, quality: number = 0.8): Promise<File> => {
@@ -53,10 +54,11 @@ const convertToWebP = async (file: File, quality: number = 0.8): Promise<File> =
 const createMemory = async (params: MemoryParams) => {
 	try {
 		const formData = new FormData();
-		const { nickname, image, location, message } = params;
+		const { nickname, image, location, message, amount } = params;
 		const optimizedImage = await convertToWebP(image);
 
 		formData.append("nickname", nickname || "익명의 먼지");
+		formData.append("amount", amount);
 		formData.append("image", optimizedImage);
 		formData.append("message", message);
 		formData.append("location", location);
