@@ -39,10 +39,6 @@ const Fifth = () => {
 					setLoading(false);
 				}
 			} catch (error) {
-				if (error === "413") {
-					setErrorMessage("사진 용량이 너무 커요. 캡쳐 된 사진으로 다시 시도 해 주세요.");
-				}
-
 				setLoading(false);
 				setError(true);
 			}
@@ -68,11 +64,7 @@ const Fifth = () => {
 
 	if (hasError) {
 		return <Alert onClickClose={handleClickMain}>
-			{
-				errorMessage
-					? <p>{errorMessage}</p>
-					: <p>에러가 발생했습니다.<br />다시 시도 해 주세요.</p>
-			}
+			<p>에러가 발생했습니다.<br />원본 사진이 아닌 캡쳐 사진으로 시도 해 주세요.</p>
 		</Alert>;
 	}
 
