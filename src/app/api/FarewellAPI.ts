@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import FarewellLocation from "../farewell/types/FarewellLocation";
 import { URL_API } from "./config";
 
@@ -70,8 +70,13 @@ const createMemory = async (params: MemoryParams) => {
 
 		return await axiosInstance.post(`${URL_API}/memory`, formData);
 	} catch (e) {
-		console.error("Image optimization failed:", e);
-		throw e;
+		const error = e as AxiosError;
+		if (error.code === "413") {
+			throw error.code;
+		} else {
+			console.error("Post failed:", e);
+			throw e;
+		}
 	}
 };
 

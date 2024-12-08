@@ -19,7 +19,7 @@ const pages = [{
 {
 	className: "summary-wrap",
 	href: Pages.Summary,
-	label: "우리의 먼지는"
+	label: "지운 먼지 알아보기"
 }];
 
 const Main = () => {
