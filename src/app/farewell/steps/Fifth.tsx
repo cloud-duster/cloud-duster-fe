@@ -30,7 +30,8 @@ const Fifth = () => {
 					image: file,
 					nickname: nickName,
 					location: selectedLocation,
-					message: farewell
+					message: farewell,
+					amount: deletedFileCount
 				});
 
 				if (response) {
