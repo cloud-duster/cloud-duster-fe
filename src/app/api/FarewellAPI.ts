@@ -1,4 +1,4 @@
-import axios, { AxiosError } from "axios";
+import axios from "axios";
 import FarewellLocation from "../farewell/types/FarewellLocation";
 import { URL_API } from "./config";
 
@@ -10,7 +10,7 @@ interface MemoryParams {
 	amount: number;
 }
 
-const convertToWebP = async (file: File, quality: number = 0.8): Promise<File> => {
+const convertToWebP = async (file: File, quality: number = 0.7): Promise<File> => {
 	return new Promise((resolve, reject) => {
 		const reader = new FileReader();
 		reader.onload = async () => {
@@ -70,13 +70,8 @@ const createMemory = async (params: MemoryParams) => {
 
 		return await axiosInstance.post(`${URL_API}/memory`, formData);
 	} catch (e) {
-		const error = e as AxiosError;
-		if (error.code === "413") {
-			throw error.code;
-		} else {
-			console.error("Post failed:", e);
-			throw e;
-		}
+		console.error("Post failed:", e);
+		throw e;
 	}
 };
 
