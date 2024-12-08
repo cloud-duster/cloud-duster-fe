@@ -35,7 +35,7 @@ const First = () => {
 		}
 	};
 
-	useValidateNextButton({ disableCondition: !!error || !value || parseInt(value) <= 10 });
+	useValidateNextButton({ disableCondition: !!error || !value || parseInt(value) < 10 });
 	useEffect(() => {
 		if (deletedFileCount) {
 			setValue(String(deletedFileCount));
