@@ -16,10 +16,11 @@ const Second = () => {
 		const selectedFile = e.target.files?.[0] || null;
 
 		if (selectedFile) {
+			console.log(selectedFile.size);
 			if (isHeic(selectedFile)) {
 				alert("캡쳐된 사진으로 올려주세요!");
 				return;
-			} else if (selectedFile.size >= 2097152) {
+			} else if (selectedFile.size >= 20000000) {
 				alert("용량이 너무 큰 것 같아요!\n원본이 아닌 캡쳐된 사진으로 올려주세요.");
 				return;
 			}
