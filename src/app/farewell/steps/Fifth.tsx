@@ -13,6 +13,7 @@ const Fifth = () => {
 	const { deletedFileCount, resetStore, file, nickName, selectedLocation, farewell } = useFarewellStore();
 	const [isLoading, setLoading] = useState(true);
 	const [hasError, setError] = useState(false);
+	const [errorMessage, setErrorMessage] = useState("");
 	const navigate = useNavigate();
 	const fileSize = file?.size || 1;
 	const deletedQuota = deletedFileCount * fileSize;
@@ -38,6 +39,10 @@ const Fifth = () => {
 					setLoading(false);
 				}
 			} catch (error) {
+				if (error === "413") {
+					setErrorMessage("사진 용량이 너무 커요. 캡쳐 된 사진으로 다시 시도 해 주세요.");
+				}
+
 				setLoading(false);
 				setError(true);
 			}
@@ -63,7 +68,11 @@ const Fifth = () => {
 
 	if (hasError) {
 		return <Alert onClickClose={handleClickMain}>
-			<p>에러가 발생했습니다.<br />다시 시도 해 주세요.</p>
+			{
+				errorMessage
+					? <p>{errorMessage}</p>
+					: <p>에러가 발생했습니다.<br />다시 시도 해 주세요.</p>
+			}
 		</Alert>;
 	}
 

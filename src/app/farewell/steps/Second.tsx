@@ -7,15 +7,20 @@ import useValidateNextButton from "../hooks/useValidateNextButton";
 const Second = () => {
 	const { saveFile, file } = useFarewellStore();
 	const floatingImageRef = useRef<HTMLImageElement>(null);
+	const isHeic = (selectedFile: File) => {
+		return selectedFile.type === "image/heic" || selectedFile.type === "image/heif" || selectedFile.name.toLowerCase().endsWith(".heic") ||
+			selectedFile.name.toLowerCase().endsWith(".heif");
+	};
 
 	const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
 		const selectedFile = e.target.files?.[0] || null;
 
 		if (selectedFile) {
-			const isHeic = selectedFile.type === "image/heic" || selectedFile.type === "image/heif" || selectedFile.name.toLowerCase().endsWith(".heic") ||
-				selectedFile.name.toLowerCase().endsWith(".heif");
-			if (isHeic) {
+			if (isHeic(selectedFile)) {
 				alert("캡쳐된 사진으로 올려주세요!");
+				return;
+			} else if (selectedFile.size >= 2097152) {
+				alert("용량이 너무 큰데요? 원본이 아닌 캡쳐된 사진으로 올려주세요!");
 				return;
 			}
 

@@ -20,8 +20,14 @@ const First = () => {
 
 		if (value && (isNaN(valueAsNumber) || !isNumber(value))) {
 			setError("숫자만 입력 해 주세요.");
-		} else if (valueAsNumber <= 0) {
-			setError("0보다 큰 수를 입력 해 주세요.");
+		} else if (valueAsNumber < 10) {
+			if (valueAsNumber <= 0) {
+				setError("0보다 큰 수를 입력 해 주세요.");
+			} else {
+				setError("10장 이상 지워주세요.");
+			}
+
+			setValue(value);
 		} else {
 			setError("");
 			setValue(value);
@@ -29,7 +35,7 @@ const First = () => {
 		}
 	};
 
-	useValidateNextButton({ disableCondition: !!error || !value });
+	useValidateNextButton({ disableCondition: !!error || !value || parseInt(value) <= 10 });
 	useEffect(() => {
 		if (deletedFileCount) {
 			setValue(String(deletedFileCount));
