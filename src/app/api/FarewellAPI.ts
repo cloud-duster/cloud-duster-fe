@@ -58,7 +58,7 @@ const createMemory = async (params: MemoryParams) => {
 		const optimizedImage = await convertToWebP(image);
 
 		formData.append("nickname", nickname || "익명의 먼지");
-		formData.append("amount", amount);
+		formData.append("amount", amount.toString());
 		formData.append("image", optimizedImage);
 		formData.append("message", message);
 		formData.append("location", location);
