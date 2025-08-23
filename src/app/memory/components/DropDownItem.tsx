@@ -1,5 +1,6 @@
 import { formatDate } from "@/app/utils/date";
 import React, { FC } from "react";
+import { useTranslation } from "react-i18next";
 import { MemoryDateType } from "../constant/MemoryDate";
 
 interface Props {
@@ -9,18 +10,20 @@ interface Props {
 }
 
 const DropDownItem: FC<Props> = ({ date, onClickDate, index }) => {
-	const handleClickDate = (date: MemoryDateType) => () => {
-		onClickDate(date);
-	};
+  const { t } = useTranslation();
+  
+  const handleClickDate = (date: MemoryDateType) => () => {
+    onClickDate(date);
+  };
 
-	return <a
-		className="pointer"
-		onClick={handleClickDate(date)}
-	>
-		{
-			index === 0 ? "전체" : formatDate(date.value)
-		}
-	</a>;
+  return (
+    <a
+      className="pointer"
+      onClick={handleClickDate(date)}
+    >
+      {index === 0 ? t('memory.dropdown.all') : formatDate(date.value)}
+    </a>
+  );
 };
 
 export default DropDownItem;

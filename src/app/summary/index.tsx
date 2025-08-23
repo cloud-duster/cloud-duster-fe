@@ -3,15 +3,17 @@ import "@/css/summary.css";
 import Pages from "@/routes";
 import useLoadingStore from "@/state/LoadingStore";
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { getSummary, SummaryData } from "../api/SummaryAPI";
 import DeletedAmount from "./DeletedAmount";
 import ReducedCarbon from "./ReducedCarbon";
 
 const Summary = () => {
-	const { showLoading, hideLoading } = useLoadingStore();
-	const [summary, setSummary] = useState<SummaryData>();
-	const navigate = useNavigate();
+  const { t } = useTranslation();
+  const { showLoading, hideLoading } = useLoadingStore();
+  const [summary, setSummary] = useState<SummaryData>();
+  const navigate = useNavigate();
 	const handleClickToMain = () => {
 		navigate(Pages.Main);
 	};
@@ -36,7 +38,7 @@ const Summary = () => {
 		<DeletedAmount summary={summary} />
 		<ReducedCarbon summary={summary} />
 		<Button onClick={handleClickToMain} className="summary-main-button">
-			메인으로
+			{t('buttons.back_to_main')}
 		</Button>
 	</div>;
 };

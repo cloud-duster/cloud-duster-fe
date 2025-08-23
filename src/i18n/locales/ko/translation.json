@@ -1,0 +1,119 @@
+{
+  "welcome": "클라우드 더스터에 오신 것을 환영합니다",
+  "language": "언어",
+  "english": "영어",
+  "korean": "한국어",
+  "error_image_upload_1": "에러가 발생했습니다.",
+  "error_image_upload_2": "원본 사진이 아닌 캡쳐 사진으로 시도 해 주세요.",
+  "memory": {
+    "empty_gallery": {
+      "description": "아직 털어낸<br />클라우드가 없나봐요.",
+      "button": "정리하러 가기"
+    },
+    "anonymous": "익명의 먼지",
+    "dropdown": {
+      "all": "전체"
+    },
+    "timer": {
+      "time_units": {
+        "day": "일",
+        "hour": "시간",
+        "minute": "분",
+        "second": "초"
+      },
+      "message": "{{time}} 후,<br />지구가 좀 더 가벼워져요."
+    }
+  },
+  "buttons": {
+    "previous": "이전",
+    "next": "다음",
+    "back_to_main": "메인으로",
+    "share": "공유하기",
+    "go_to_memory": "추억 보러가기"
+  },
+  "navigation": {
+    "farewell": "보내주기",
+    "memory": "추억하기",
+    "summary": "지운 먼지 알아보기"
+  },
+  "summary": {
+    "car_km": "자동차 <br /><em class=\"accent\">{{value}}</em>km",
+    "smartphone_charges": "스마트폰 <br /><em class=\"accent\">{{value}}</em>번 충전",
+    "laptop_hours": "노트북 <br /><em class=\"accent\">{{value}}</em>시간",
+    "plastic_bottles": "플라스틱<br />페트병 <em class=\"accent\">{{value}}</em>개",
+    "a4_paper": "A4용지<br /> <em class=\"accent\">{{value}}</em>장",
+    "water_liters": "물<br /><em class=\"accent\">{{value}}</em>L",
+    "reduced_carbon": {
+      "title": "지운<br />탄소 양",
+      "carbon_footprint": "클라우드 저장소의 <br />1GB당 약 2KG의 탄소가 발생해요.",
+      "saved": "만큼 아꼈어요! ☁️"
+    },
+    "deleted_amount": {
+      "title": "지운 먼지<br />알아보기",
+      "subtitle": "만큼 가벼워졌어요.",
+      "photos_deleted": "{{count}}개의 사진이 지워졌어요.",
+      "clouds_cleaned": "{{count}}명의 클라우드가 정리됐어요.",
+      "avg_size": "사진당 평균 용량은 {{size}} MB이에요."
+    }
+  },
+  "information": {
+    "title": "구름털이 소개",
+    "description": "클라우드에 저장 되어있는 사진들 중 몇 개나 꺼내보시나요? 쌓여가는 사진을 모아둔 클라우드는 추억 보관소가 아닌 무거운 잡동사니 상자가 됩니다. 사진을 지우지 않는 이유는 언제 찾아볼 지 모른다는 노파심과 추억을 삭제하기 아쉬운 두 가지 마음이 겹쳐서 나타났을 것입니다. 여기, 구름털이에서 클라우드에 켜켜히 쌓인 먼지를 털어내며 우리가 사진을 찍는 이유를 고민하고, 수많은 인생샷들이 남긴 부작용들을 갈무리하는 시간을 가져보세요.",
+    "instagram": "인스타그램",
+    "creators": "제작자",
+    "creator1": "도막 @forbid403",
+    "creator2": "정인 @mywnajsldkf"
+  },
+  "tutorial": {
+    "steps": [
+      {
+        "title": "사용 중인 클라우드에서<br />사진/동영상을 <em class=\"accent\">10장</em> 이상 지워주세요.",
+        "buttonLabel": "삭제완료!"
+      },
+      {
+        "title": "기억하고 싶은 사진<br />1장을 <em class=\"accent\">캡쳐</em> 후,<br />휴지통을 비워주세요.",
+        "buttonLabel": "비웠어요"
+      },
+      {
+        "title": "구름털이에 지운 사진을 <em class=\"accent\">공유</em>해 보세요.",
+        "description": "공유된 사진은 3일 후<br />임시 클라우드에서 삭제됩니다.",
+        "buttonLabel": "야호!"
+      }
+    ]
+  },
+  "farewell": {
+    "first": {
+      "title": "사진/동영상을 <em class=\"accent\">몇 장</em> 보내주셨나요?",
+      "input_suffix": "장",
+      "errors": {
+        "not_number": "숫자만 입력 해 주세요.",
+        "zero_or_less": "0보다 큰 수를 입력 해 주세요.",
+        "less_than_ten": "10장 이상 지워주세요."
+      }
+    },
+    "deleted_quota": "약 {{size}}MB 만큼 가벼워졌어요!",
+    "savings_description": "클라우드에서 {{size}}MB을 지우면\n물 {{water}}L, 종이 {{paper}}장을 아낄 수 있어요.",
+    "view_savings": "얼마나 아꼈는지 보러가기",
+    "loading": "떠나 보내는 중...",
+    "fourth": {
+      "title": "사진을 보내 줄 장소를<br />선택 해 주세요.",
+      "locations": {
+        "sky": "하늘",
+        "ocean": "바다",
+        "mountain": "산"
+      }
+    },
+    "third": {
+      "title": "<1>★˚⋱</1> 작별인사 쓰기 <2>⋰˚★</2>",
+      "nickname_placeholder": "익명의 먼지털이",
+      "counter": "{{current}}/{{max}}"
+    },
+    "second": {
+      "title": "구름을 눌러 <br />보내줄 사진을 <br /><em class=\"accent\">선택</em> 해 주세요!",
+      "alerts": {
+        "heic_warning": "캡쳐된 사진으로 올려주세요!",
+        "file_too_large": "용량이 너무 큰 것 같아요!\n원본이 아닌 캡쳐된 사진으로 올려주세요."
+      }
+    }
+  }
+}

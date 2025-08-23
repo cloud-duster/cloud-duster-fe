@@ -101,6 +101,14 @@ select {
     font-size: 16px;
 }
 
+.language-selector {
+    position:fixed;
+    right: 10px;
+    top: 10px;
+    border: none;
+    z-index: 10;
+}
+
 .container {
     display: flex;
     width: 100%;
@@ -234,15 +242,23 @@ select {
 
 textarea.goodbye {
     box-sizing: border-box;
-    padding-left: 10px;
-    padding-top: 5px;
+    padding: 10px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    display: block;
+    margin: 0 auto;
+    font-family: inherit;
 }
 
 .goodbye.nickname {
     height: 40px;
-    margin: 1% auto;
+    margin: 10px auto;
     line-height: 34px;
-    padding-top: 0;
+    padding: 0 10px;
+    width: 100%;
+    max-width: 300px;
+    display: block;
 }
 
 .cloud {

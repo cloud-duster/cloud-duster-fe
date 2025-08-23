@@ -1,5 +1,6 @@
 import { getFixedLocaleString } from "@/app/utils/quota";
 import React, { FC } from "react";
+import { useTranslation } from "react-i18next";
 
 interface Props {
 	reducedCarbon: number;
@@ -8,45 +9,60 @@ interface Props {
 const FIXED = 3;
 
 const ReducedList: FC<Props> = ({ reducedCarbon }) => {
+  const { t } = useTranslation();
+  
+  const items = [
+    { 
+      image: "/assets/car.webp",
+      key: "car_km",
+      value: 80 * reducedCarbon
+    },
+    { 
+      image: "/assets/smartphone.webp",
+      key: "smartphone_charges",
+      value: 250 * reducedCarbon
+    },
+    { 
+      image: "/assets/computer.webp",
+      key: "laptop_hours",
+      value: 30 * reducedCarbon
+    },
+    { 
+      image: "/assets/pet.webp",
+      key: "plastic_bottles",
+      value: 15 * reducedCarbon
+    },
+    { 
+      image: "/assets/paper.webp",
+      key: "a4_paper",
+      value: 80 * reducedCarbon
+    },
+    { 
+      image: "/assets/water.webp",
+      key: "water_liters",
+      value: 1000 * reducedCarbon
+    }
+  ];
 
-	return <div className="grid-container">
-		<div className="grid-item-wrapper">
-			<div className="grid-item">
-				<img src="/assets/car.webp" className="grid-image" />
-			</div>
-			<div className="label">자동차 <br /><em className="accent">{getFixedLocaleString(80 * reducedCarbon, FIXED)}</em>km</div>
-		</div>
-		<div className="grid-item-wrapper">
-			<div className="grid-item">
-				<img src="/assets/smartphone.webp" className="grid-image" />
-			</div>
-			<div className="label">스마트폰 <br /><em className="accent">{getFixedLocaleString(250 * reducedCarbon, FIXED)}</em>번 충전</div>
-		</div>
-		<div className="grid-item-wrapper">
-			<div className="grid-item">
-				<img src="/assets/computer.webp" className="grid-image" />
-			</div>
-			<div className="label">노트북 <br /><em className="accent">{getFixedLocaleString(30 * reducedCarbon, FIXED)}</em>시간</div>
-		</div>
-		<div className="grid-item-wrapper">
-			<div className="grid-item">
-				<img src="/assets/pet.webp" className="grid-image" />
-			</div>
-			<div className="label">플라스틱<br />페트병 <em className="accent">{getFixedLocaleString(15 * reducedCarbon, FIXED)}</em>개</div>
-		</div>
-		<div className="grid-item-wrapper">
-			<div className="grid-item">
-				<img src="/assets/paper.webp" className="grid-image" />
-			</div>
-			<div className="label">A4용지<br /> <em className="accent">{getFixedLocaleString(80 * reducedCarbon, FIXED)}</em>장</div>
-		</div>
-		<div className="grid-item-wrapper">
-			<div className="grid-item">
-				<img src="/assets/water.webp" className="grid-image" />
-			</div>
-			<div className="label">물<br /><em className="accent">{getFixedLocaleString(1000 * reducedCarbon, FIXED)}</em>L</div>
-		</div>
-	</div>;
+  return (
+    <div className="grid-container">
+      {items.map((item, index) => (
+        <div key={index} className="grid-item-wrapper">
+          <div className="grid-item">
+            <img src={item.image} className="grid-image" alt="" />
+          </div>
+          <div 
+            className="label" 
+            dangerouslySetInnerHTML={{ 
+              __html: t(`summary.${item.key}`, { 
+                value: getFixedLocaleString(item.value, FIXED) 
+              })
+            }} 
+          />
+        </div>
+      ))}
+    </div>
+  );
 };
 
 export default ReducedList;

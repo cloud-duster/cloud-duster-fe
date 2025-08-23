@@ -1,10 +1,12 @@
 import Button from "@/components/Button";
 import Pages from "@/routes";
 import React from "react";
+import { useTranslation, Trans } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 
 const EmptyGallery = () => {
-	const navigate = useNavigate();
+  const { t } = useTranslation();
+  const navigate = useNavigate();
 	const handleClickButton = () => {
 		navigate(Pages.Farewell);
 	};
@@ -14,10 +16,13 @@ const EmptyGallery = () => {
 			<img src="/assets/cloud.webp" className="cloud center" />
 			<div className="question-mark center">?</div>
 		</div>
-		<p className="empty-desc">아직 털어낸<br />클라우드가 없나봐요.</p>
+		<p 
+        className="empty-desc" 
+        dangerouslySetInnerHTML={{ __html: t('memory.empty_gallery.description') }}
+      />
 
 		<Button className="empty-gallery-button" onClick={handleClickButton}>
-			정리하러 가기
+			{t('memory.empty_gallery.button')}
 		</Button>
 	</div>;
 };

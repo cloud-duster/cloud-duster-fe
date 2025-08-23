@@ -3,15 +3,17 @@ import useLoadingStore from "@/state/LoadingStore";
 import classNames from "classnames";
 import React, { FC, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { getMemory } from "../api/MemoryAPI";
 import { Memory } from "../api/types/MemoryType";
 import BackButton from "./components/BackButton";
 
 
 const MemoryDetail: FC = () => {
-	const { showLoading, hideLoading } = useLoadingStore();
-	const { id } = useParams<{ id: string }>();
-	const [itemDetail, setDetail] = useState<Memory>();
+  const { t } = useTranslation();
+  const { showLoading, hideLoading } = useLoadingStore();
+  const { id } = useParams<{ id: string }>();
+  const [itemDetail, setDetail] = useState<Memory>();
 
 	useEffect(() => {
 		if (!id) {
@@ -40,7 +42,7 @@ const MemoryDetail: FC = () => {
 				className={classNames("detail-image", itemDetail.location.toLowerCase())}
 				src={itemDetail.image_url}
 			/>
-			<div className="detail-nickname">{itemDetail.nickname || "익명의 먼지"}</div>
+			<div className="detail-nickname">{itemDetail.nickname || t('memory.anonymous')}</div>
 			<p className="detail-content">
 				{itemDetail.message}
 			</p>

@@ -1,14 +1,16 @@
 import useFarewellStore from "@/state/FarewellStore";
 import classNames from "classnames";
 import React, { useEffect, useState } from "react";
+import { useTranslation, Trans } from "react-i18next";
 import useValidateNextButton from "../hooks/useValidateNextButton";
 import Tutorial from "./components/Tutorial";
 
 const First = () => {
-	const [value, setValue] = useState("");
-	const [showLayer, setShowLayer] = useState(true);
-	const [error, setError] = useState("");
-	const { deletedFileCount, setDeletedCount } = useFarewellStore();
+  const { t } = useTranslation();
+  const [value, setValue] = useState("");
+  const [showLayer, setShowLayer] = useState(true);
+  const [error, setError] = useState("");
+  const { deletedFileCount, setDeletedCount } = useFarewellStore();
 
 	const isNumber = (target: string) => {
 		return /^\d*$/.test(target);
@@ -19,12 +21,12 @@ const First = () => {
 		const valueAsNumber = parseInt(value);
 
 		if (value && (isNaN(valueAsNumber) || !isNumber(value))) {
-			setError("숫자만 입력 해 주세요.");
+			setError(t('farewell.first.errors.not_number'));
 		} else if (valueAsNumber < 10) {
 			if (valueAsNumber <= 0) {
-				setError("0보다 큰 수를 입력 해 주세요.");
+				setError(t('farewell.first.errors.zero_or_less'));
 			} else {
-				setError("10장 이상 지워주세요.");
+				setError(t('farewell.first.errors.less_than_ten'));
 			}
 
 			setValue(value);
@@ -45,10 +47,10 @@ const First = () => {
 	return (
 		<>
 			{showLayer && <Tutorial onClickClose={() => { setShowLayer(false); }} />}
-			<div style={{ lineHeight: "30px" }}>
-				사진/동영상을 <em className="accent">몇 장</em>
-				<br /> 보내주셨나요?
-			</div>
+			<div 
+			  style={{ lineHeight: "30px" }}
+			  dangerouslySetInnerHTML={{ __html: t('farewell.first.title') }}
+			/>
 
 			<div>
 				<input
@@ -56,7 +58,8 @@ const First = () => {
 					className={classNames("deleted-photo-input", { "with-error": error })}
 					onChange={handleChange}
 					value={value}
-				/>{" "}장
+				/>
+				{t('farewell.first.input_suffix') && ` ${t('farewell.first.input_suffix')}`}
 				<p
 					className="error"
 					style={error ? undefined : { visibility: "hidden" }}
