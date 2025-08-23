@@ -18,7 +18,7 @@ const LanguageSelector: React.FC<LanguageSelectorProps> = () => {
       onChange={changeLanguage}
     >
       <option value="en">English</option>
-      <option value="ko-KR">한국어</option>
+      <option value="ko-KR">Korean</option>
     </select>
   );
 };
