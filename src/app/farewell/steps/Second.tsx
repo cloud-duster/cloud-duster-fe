@@ -1,11 +1,13 @@
 import useFarewellStore from "@/state/FarewellStore";
 import classNames from "classnames";
 import React, { ChangeEvent, useEffect, useRef } from "react";
+import { useTranslation, Trans } from "react-i18next";
 import useValidateNextButton from "../hooks/useValidateNextButton";
 
 
 const Second = () => {
-	const { saveFile, file } = useFarewellStore();
+  const { t } = useTranslation();
+  const { saveFile, file } = useFarewellStore();
 	const floatingImageRef = useRef<HTMLImageElement>(null);
 	const isHeic = (selectedFile: File) => {
 		return selectedFile.type === "image/heic" || selectedFile.type === "image/heif" || selectedFile.name.toLowerCase().endsWith(".heic") ||
@@ -18,10 +20,10 @@ const Second = () => {
 		if (selectedFile) {
 			console.log(selectedFile.size);
 			if (isHeic(selectedFile)) {
-				alert("캡쳐된 사진으로 올려주세요!");
+				alert(t('farewell.second.alerts.heic_warning'));
 				return;
 			} else if (selectedFile.size >= 20000000) {
-				alert("용량이 너무 큰 것 같아요!\n원본이 아닌 캡쳐된 사진으로 올려주세요.");
+				alert(t('farewell.second.alerts.file_too_large'));
 				return;
 			}
 
@@ -42,10 +44,10 @@ const Second = () => {
 	}, [file, floatingImageRef]);
 
 	return <>
-		<div style={{ lineHeight: "30px" }}>
-			구름을 눌러 <br />
-			보내줄 사진을 <br /><em className="accent">선택</em> 해 주세요!
-		</div>
+		<div 
+		  style={{ lineHeight: "30px" }}
+		  dangerouslySetInnerHTML={{ __html: t('farewell.second.title') }}
+		/>
 
 		<div>
 			<img

@@ -1,0 +1,119 @@
+{
+  "welcome": "Welcome to Cloud Duster",
+  "language": "Language",
+  "english": "English",
+  "korean": "Korean",
+  "error_image_upload_1": "An error has occurred.",
+  "error_image_upload_2": "Please try again with a captured image instead of the original photo.",
+  "memory": {
+    "empty_gallery": {
+      "description": "You haven't cleaned up<br />any cloud storage yet.",
+      "button": "Start Cleaning"
+    },
+    "anonymous": "Anonymous Dust",
+    "dropdown": {
+      "all": "All"
+    },
+    "timer": {
+      "time_units": {
+        "day": "d",
+        "hour": "h",
+        "minute": "m",
+        "second": "s"
+      },
+      "message": "{{time}} left,<br />Earth will be a little lighter."
+    }
+  },
+  "buttons": {
+    "previous": "Previous",
+    "next": "Next",
+    "back_to_main": "Back to Main",
+    "share": "Share",
+    "go_to_memory": "View Memories"
+  },
+  "navigation": {
+    "farewell": "Farewell",
+    "memory": "Memories",
+    "summary": "View Dust"
+  },
+  "summary": {
+    "car_km": "Car <br /><em class=\"accent\">{{value}}</em>km",
+    "smartphone_charges": "Smartphone <br /><em class=\"accent\">{{value}}</em> charges",
+    "laptop_hours": "Laptop <br /><em class=\"accent\">{{value}}</em> hours",
+    "plastic_bottles": "Plastic<br />bottles <em class=\"accent\">{{value}}</em>",
+    "a4_paper": "A4 paper<br /><em class=\"accent\">{{value}}</em> sheets",
+    "water_liters": "Water<br /><em class=\"accent\">{{value}}</em>L",
+    "reduced_carbon": {
+      "title": "Reduced<br />Carbon",
+      "carbon_footprint": "Cloud storage generates about 2KG of carbon<br />for every 1GB of data stored.",
+      "saved": "Saved this much! ☁️"
+    },
+    "deleted_amount": {
+      "title": "Deleted<br />Dust",
+      "subtitle": "Lighter by this much!",
+      "photos_deleted": "{{count}} photos have been deleted.",
+      "clouds_cleaned": "{{count}} cloud storage(s) have been cleaned.",
+      "avg_size": "Average size per photo is {{size}} MB."
+    }
+  },
+  "information": {
+    "title": "About Cloud Duster",
+    "description": "How many of the photos stored in your cloud do you actually look at? A cloud full of accumulated photos becomes not a treasure chest of memories, but a heavy box of clutter. The reason we don't delete photos often comes from two overlapping feelings: the fear that we might need them someday, and the reluctance to let go of memories. Here at Cloud Duster, take a moment to dust off the layers of digital dust in your cloud, reflect on why we take photos, and organize the side effects left behind by countless life shots.",
+    "instagram": "Instagram",
+    "creators": "Creators",
+    "creator1": "Sonia @forbid403",
+    "creator2": "Jeongin @mywnajsldkf"
+  },
+  "tutorial": {
+    "steps": [
+      {
+        "title": "Delete <em class=\"accent\">10 or more</em> photos/videos<br />from your cloud storage.",
+        "buttonLabel": "Deleted!"
+      },
+      {
+        "title": "Take a <em class=\"accent\">screenshot</em> of the photo<br />you want to keep, then<br />empty the trash.",
+        "buttonLabel": "Done"
+      },
+      {
+        "title": "<em class=\"accent\">Share</em> your deleted photo<br />with Cloud Duster.",
+        "description": "Shared photos will be deleted<br />from temporary storage after 3 days.",
+        "buttonLabel": "Hooray!"
+      }
+    ]
+  },
+  "farewell": {
+    "first": {
+      "title": "How many <em class=\"accent\">photos/videos</em> did you send?",
+      "input_suffix": "items",
+      "errors": {
+        "not_number": "Please enter numbers only.",
+        "zero_or_less": "Please enter a number greater than 0.",
+        "less_than_ten": "Please delete 10 or more items."
+      }
+    },
+    "deleted_quota": "You've lightened up by about {{size}}MB!",
+    "savings_description": "By deleting {{size}}MB from the cloud,\nyou can save {{water}}L of water and {{paper}} sheets of paper.",
+    "view_savings": "See your savings",
+    "loading": "Sending off...",
+    "fourth": {
+      "title": "Select a location<br />to send your photo.",
+      "locations": {
+        "sky": "Sky",
+        "ocean": "Ocean",
+        "mountain": "Mountain"
+      }
+    },
+    "third": {
+      "title": "<1>★˚⋱</1> Write a farewell message <2>⋰˚★</2>",
+      "nickname_placeholder": "Anonymous Duster",
+      "counter": "{{current}}/{{max}}"
+    },
+    "second": {
+      "title": "Click the cloud<br />to <em class=\"accent\">select</em><br />a photo to send!",
+      "alerts": {
+        "heic_warning": "Please upload a screenshot instead!",
+        "file_too_large": "The file is too large!\nPlease upload a screenshot instead of the original photo."
+      }
+    }
+  }
+}

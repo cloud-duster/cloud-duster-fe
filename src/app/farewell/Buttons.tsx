@@ -1,10 +1,12 @@
 import Button from "@/components/Button";
 import useFarewellStore from "@/state/FarewellStore";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import Page from "./types/Page";
 
 const Buttons = () => {
-	const { currentPage, nextPage, previousPage, isNextButtonDisabled, setFarewell, setNickName } = useFarewellStore();
+  const { t } = useTranslation();
+  const { currentPage, nextPage, previousPage, isNextButtonDisabled, setFarewell, setNickName } = useFarewellStore();
 	const showPreviousButton = currentPage <= Page.Fourth && currentPage !== Page.First;
 	const showNextButton = currentPage <= Page.Third;
 
@@ -28,9 +30,22 @@ const Buttons = () => {
 		previousPage();
 	};
 
-	return <div className="row button-area">
-		{showPreviousButton && <Button onClick={handleClickPrevious}>이전</Button>}
-		{showNextButton && <Button onClick={handleClickNext} disabled={isNextButtonDisabled}>다음</Button>}
-	</div>;
+  return (
+    <div className="row button-area">
+      {showPreviousButton && (
+        <Button onClick={handleClickPrevious}>
+          {t('buttons.previous')}
+        </Button>
+      )}
+      {showNextButton && (
+        <Button 
+          onClick={handleClickNext} 
+          disabled={isNextButtonDisabled}
+        >
+          {t('buttons.next')}
+        </Button>
+      )}
+    </div>
+  );
 };
 export default Buttons;

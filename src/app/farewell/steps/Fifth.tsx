@@ -8,8 +8,10 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Loading from "./Loading";
 import Alert from "./components/Alert";
+import { useTranslation } from "react-i18next";
 
 const Fifth = () => {
+	const { t } = useTranslation();
 	const { deletedFileCount, resetStore, file, nickName, selectedLocation, farewell } = useFarewellStore();
 	const [isLoading, setLoading] = useState(true);
 	const [hasError, setError] = useState(false);
@@ -64,7 +66,7 @@ const Fifth = () => {
 
 	if (hasError) {
 		return <Alert onClickClose={handleClickMain}>
-			<p>에러가 발생했습니다.<br />원본 사진이 아닌 캡쳐 사진으로 시도 해 주세요.</p>
+			<p>{t('error_image_upload_1')}<br />{t('error_image_upload_2')}</p>
 		</Alert>;
 	}
 
@@ -81,14 +83,20 @@ const Fifth = () => {
                 ${isLoading ? "fade-out" : "fade-in"}`
 			}>
 				<p className="deleted-quota-text">
-					<em className="accent">약 {getFixedLocaleString(deletedQuotaInMB, 1)}MB</em> 만큼 가벼워졌어요!
+					<em className="accent">
+						{t('farewell.deleted_quota', { size: getFixedLocaleString(deletedQuotaInMB, 1) })}
+					</em>
 				</p>
 				<p className="shade">
-					클라우드에서 {getFixedLocaleString(deletedQuotaInMB)}MB을 지우면
-					물 {getFixedLocaleString(deletedQuotaInGB * 1000)}L,<br />
-					종이 {getFixedLocaleString(deletedQuotaInGB * 80)}장을 아낄 수 있어요.
+					{t('farewell.savings_description', {
+						size: getFixedLocaleString(deletedQuotaInMB),
+						water: getFixedLocaleString(deletedQuotaInGB * 1000),
+						paper: getFixedLocaleString(deletedQuotaInGB * 80)
+					})}
 				</p>
-				<Button className="to-main" onClick={handleClickToSummary}>얼마나 아꼈는지 보러가기</Button>
+				<Button className="to-main" onClick={handleClickToSummary}>
+					{t('farewell.view_savings')}
+				</Button>
 			</div>
 		</>
 	);

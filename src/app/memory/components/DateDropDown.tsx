@@ -1,12 +1,14 @@
 import { formatDate } from "@/app/utils/date";
 import useMemoryStore from "@/state/MemoryStore";
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import MemoryDate, { DateType, MemoryDateType } from "../constant/MemoryDate";
 import DropDownItem from "./DropDownItem";
 
 const DateDropDown = () => {
-	const { selectedDate, setSelectedDate } = useMemoryStore();
-	const [showDropDown, setDropDownVisibility] = useState(false);
+  const { t } = useTranslation();
+  const { selectedDate, setSelectedDate } = useMemoryStore();
+  const [showDropDown, setDropDownVisibility] = useState(false);
 
 	const handleClickSelectedDate = () => {
 		setDropDownVisibility(!showDropDown);
@@ -22,7 +24,7 @@ const DateDropDown = () => {
 			onClick={handleClickSelectedDate}
 			className="neon-text accent dropdown-font pointer dropdown-button"
 		>
-			{selectedDate.date === DateType.All ? "전체" : formatDate(selectedDate.value)}{" "}
+			{selectedDate.date === DateType.All ? t('memory.dropdown.all') : formatDate(selectedDate.value)}{" "}
 			<button
 				className="neon-text accent dropdown-font"
 				style={{

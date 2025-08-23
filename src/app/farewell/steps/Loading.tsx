@@ -1,9 +1,11 @@
 import useFarewellStore from "@/state/FarewellStore";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import FarewellLocation from "../types/FarewellLocation";
 
 const Loading = () => {
-	const { selectedLocation, file } = useFarewellStore();
+  const { t } = useTranslation();
+  const { selectedLocation, file } = useFarewellStore();
 
 	if (!file) {
 		return;
@@ -24,13 +26,13 @@ const Loading = () => {
 			<div className="bubble bubble--11"></div>
 			<div className="bubble bubble--12"></div>
 			<div className="animation-image-wrapper">
-				<p className="accent neon-text farewell-text">떠나 보내는 중...</p>
+				<p className="accent neon-text farewell-text">{t('farewell.loading')}</p>
 				<img className="drowning-image" src={URL.createObjectURL(file)} />
 			</div>
 		</div>;
 	} else if (selectedLocation === FarewellLocation.MOUNTAIN) {
 		return <div className="flame-background column">
-			<p className="flame-text farewell-text">떠나 보내는 중...</p>
+			<p className="flame-text farewell-text">{t('farewell.loading')}</p>
 			<div className="flame-wrapper">
 				<img className="flame-image" src={URL.createObjectURL(file)} />
 				<div className="flame" />
@@ -39,7 +41,7 @@ const Loading = () => {
 	} else if (selectedLocation === FarewellLocation.SKY) {
 		return <div className="animation-image-wrapper">
 			<img src="/assets/farewell-sky.webp" className="fly-background" />
-			<p className="farewell-text neon-text sky-text">떠나 보내는 중...</p>
+			<p className="farewell-text neon-text sky-text">{t('farewell.loading')}</p>
 			<div className="fly-wrapper">
 				<img className="wing left" src="/assets/wing.svg" />
 				<img className="fly-image" src={URL.createObjectURL(file)} />

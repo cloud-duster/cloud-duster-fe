@@ -1,11 +1,13 @@
 import useFarewellStore from "@/state/FarewellStore";
 import React, { ChangeEvent, useEffect, useMemo, useRef, useState } from "react";
+import { useTranslation, Trans } from "react-i18next";
 import useValidateNextButton from "../hooks/useValidateNextButton";
 
 const MAX_LENGTH = 300;
 
 const Third = () => {
-	const { file, farewell, nickName } = useFarewellStore();
+  const { t } = useTranslation();
+  const { file, farewell, nickName } = useFarewellStore();
 	const [textCount, setTextCount] = useState(0);
 	const imageSrc = useMemo(() => (file && URL.createObjectURL(file)) || "", [file]);
 
@@ -32,7 +34,9 @@ const Third = () => {
 	return (
 		<div className="third-wrapper">
 			<div>
-				<em className="accent">★˚⋱</em> 작별인사 쓰기 <em className="accent">⋰˚★</em>
+			<Trans i18nKey="farewell.third.title" components={[<em className="accent">★˚⋱</em>, <em className="accent">⋰˚★</em>]}>
+          <em>★˚⋱</em> 작별인사 쓰기 <em>⋰˚★</em>
+        </Trans>
 			</div>
 			<img
 				className="goodbye"
@@ -43,7 +47,7 @@ const Third = () => {
 					ref={nickNameRef}
 					className="goodbye nickname"
 					id="nickname"
-					placeholder="익명의 먼지털이"
+					placeholder={t('farewell.third.nickname_placeholder')}
 				/>
 				<textarea
 					id="farewell"
@@ -52,7 +56,7 @@ const Third = () => {
 					onChange={handleOnChange}
 					ref={textAreaRef}
 				/>
-				<p className="text-counter">{textCount}/{MAX_LENGTH}</p>
+				<p className="text-counter">{t('farewell.third.counter', { current: textCount, max: MAX_LENGTH })}</p>
 			</div>
 		</div>
 	);
