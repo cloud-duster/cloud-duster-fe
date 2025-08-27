@@ -277,6 +277,7 @@ textarea.goodbye {
 }
 
 .text-counter-wrap {
+    width: 300px;
     display: flex;
     flex-direction: column;
 }

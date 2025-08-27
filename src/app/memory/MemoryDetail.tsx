@@ -24,7 +24,7 @@ const MemoryDetail: FC = () => {
 		const fetchMemory = async () => {
 			const response = await getMemory(id);
 
-			setDetail(response.data.result[0]);
+			setDetail(response.data);
 			hideLoading();
 		};
 
