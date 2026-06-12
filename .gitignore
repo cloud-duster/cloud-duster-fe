@@ -3,3 +3,6 @@ yarn.lock
 .vscode
 dist
 .DS_STORE
+.env
+.env.local
+.env.*.local
