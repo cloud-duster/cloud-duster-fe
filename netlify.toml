@@ -1,0 +1,13 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  # VITE_API_URL은 클라이언트 번들에 의도적으로 포함되는 공개 값이므로
+  # Netlify secret 스캔에서 제외한다.
+  SECRETS_SCAN_OMIT_KEYS = "VITE_API_URL"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
