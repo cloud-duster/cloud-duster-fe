@@ -1,4 +1,5 @@
 import axios from "axios";
+import i18n from "../../i18n/config";
 import FarewellLocation from "../farewell/types/FarewellLocation";
 import { URL_API } from "./config";
 
@@ -61,7 +62,7 @@ const createMemory = async (params: MemoryParams) => {
 		const { nickname, image, location, message, amount } = params;
 		const optimizedImage = await convertToWebP(image);
 
-		formData.append("nickname", nickname || "익명의 먼지");
+		formData.append("nickname", nickname || i18n.t("memory.anonymous"));
 		formData.append("amount", amount.toString());
 		formData.append("image", optimizedImage);
 		formData.append("message", message);
