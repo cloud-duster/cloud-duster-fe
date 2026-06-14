@@ -55,6 +55,13 @@ a {
     height: calc(var(--vh, 1vh) * 100);
 }
 
+/* The back button's <img> is already position:fixed; keep its empty <button>
+   wrapper out of flow so it doesn't add height and overflow the 100vh wrapper. */
+.wrapper.column > button {
+    position: fixed;
+    z-index: 10;
+}
+
 .overlay-layer {
     width: 100%;
     height: 100%;
@@ -201,10 +208,13 @@ select {
 }
 
 .location-image-wrapper {
-    padding: 0 30px 0 30px;
+    /* bottom padding = .button-area height (30px button + 30px/20px margins)
+       so the last image isn't hidden behind the fixed buttons. */
+    padding: 0 30px 80px 30px;
     display: flex;
     flex-direction: column;
-    height: 500px;
+    flex: 1;
+    min-height: 0;
 }
 
 .location-wrapper-label {
@@ -214,7 +224,7 @@ select {
 }
 
 .location-div {
-    flex-grow: 1;
+    flex: 1 1 0;
     position: relative;
     display: flex;
     justify-content: center;
@@ -278,6 +288,7 @@ textarea.goodbye {
 
 .text-counter-wrap {
     width: 300px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
 }
@@ -289,6 +300,8 @@ textarea.goodbye {
 .deleted-quota-info {
     opacity: 0;
     height: 0;
+    padding-left: 24px;
+    padding-right: 24px;
     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
 

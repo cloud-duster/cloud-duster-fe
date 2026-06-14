@@ -48,7 +48,7 @@ const First = () => {
 		<>
 			{showLayer && <Tutorial onClickClose={() => { setShowLayer(false); }} />}
 			<div 
-			  style={{ lineHeight: "30px" }}
+			  style={{ lineHeight: "30px", paddingLeft: "24px", paddingRight: "24px" }}
 			  dangerouslySetInnerHTML={{ __html: t('farewell.first.title') }}
 			/>
 

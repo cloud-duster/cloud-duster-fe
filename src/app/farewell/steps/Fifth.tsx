@@ -28,19 +28,25 @@ const Fifth = () => {
 				return;
 			}
 
+			const minLoading = new Promise((resolve) => setTimeout(resolve, 2000));
+
 			try {
-				const response = await createMemory({
-					image: file,
-					nickname: nickName,
-					location: selectedLocation,
-					message: farewell,
-					amount: deletedFileCount
-				});
+				const [response] = await Promise.all([
+					createMemory({
+						image: file,
+						nickname: nickName,
+						location: selectedLocation,
+						message: farewell,
+						amount: deletedFileCount
+					}),
+					minLoading
+				]);
 
 				if (response) {
 					setLoading(false);
 				}
 			} catch (error) {
+				await minLoading;
 				setLoading(false);
 				setError(true);
 			}
