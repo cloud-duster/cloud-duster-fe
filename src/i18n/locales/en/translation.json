@@ -83,7 +83,7 @@
   },
   "farewell": {
     "first": {
-      "title": "How many <em class=\"accent\">photos/videos</em> did you deleted?",
+      "title": "How many <em class=\"accent\">photos/videos</em> did you delete?",
       "input_suffix": "items",
       "errors": {
         "not_number": "Please enter numbers only.",
